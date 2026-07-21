@@ -1,0 +1,13 @@
+site_name: StellarModdingAPI Documentation
+site_description: Documentation for the StellarDrive modding API
+
+theme:
+  name: material
+
+repo_url: https://github.com/jollyname/StellarModdingAPI-Documentation
+repo_name: jollyname/StellarModdingAPI-Documentation
+
+nav:
+  - Home: index.md
+  - Getting Started: getting-started.md
+  - API Reference: api-reference.md
