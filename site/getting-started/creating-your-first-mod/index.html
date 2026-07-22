@@ -11,24 +11,28 @@
       
       
       
+        <link rel="prev" href="../installing-melonloader/">
+      
+      
+        <link rel="next" href="../../parts/">
       
       
         
       
       
-      <link rel="icon" href="/assets/images/favicon.png">
+      <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
-        <title>StellarModdingAPI Documentation</title>
+        <title>Creating Your First Mod - StellarModdingAPI Documentation</title>
       
     
     
-      <link rel="stylesheet" href="/assets/stylesheets/main.ec1eaa64.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
       
         
-        <link rel="stylesheet" href="/assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -47,7 +51,7 @@
       
     
     
-    <script>__md_scope=new URL("/",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -71,6 +75,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#creating-your-first-mod" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -81,7 +90,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="/." title="StellarModdingAPI Documentation" class="md-header__button md-logo" aria-label="StellarModdingAPI Documentation" data-md-component="logo">
+    <a href="../.." title="StellarModdingAPI Documentation" class="md-header__button md-logo" aria-label="StellarModdingAPI Documentation" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -101,7 +110,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              
+              Creating Your First Mod
             
           </span>
         </div>
@@ -214,7 +223,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="/." class="md-tabs__link">
+      <a href="../.." class="md-tabs__link">
         
   
   
@@ -231,11 +240,13 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="/getting-started/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
           
   
   
@@ -255,7 +266,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="/parts/" class="md-tabs__link">
+        <a href="../../parts/" class="md-tabs__link">
           
   
   
@@ -275,7 +286,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="/assets/" class="md-tabs__link">
+        <a href="../../assets/" class="md-tabs__link">
           
   
   
@@ -309,7 +320,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="/." title="StellarModdingAPI Documentation" class="md-nav__button md-logo" aria-label="StellarModdingAPI Documentation" data-md-component="logo">
+    <a href="../.." title="StellarModdingAPI Documentation" class="md-nav__button md-logo" aria-label="StellarModdingAPI Documentation" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -339,7 +350,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/." class="md-nav__link">
+      <a href="../.." class="md-nav__link">
         
   
   
@@ -363,28 +374,31 @@
       
   
   
+    
   
   
+  
     
     
     
     
+      
+        
+        
       
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
         
           
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
-        
-          
-          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
             
   
   
@@ -402,7 +416,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             
@@ -420,7 +434,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/getting-started/" class="md-nav__link">
+      <a href="../" class="md-nav__link">
         
   
   
@@ -448,7 +462,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/getting-started/installing-melonloader/" class="md-nav__link">
+      <a href="../installing-melonloader/" class="md-nav__link">
         
   
   
@@ -473,10 +487,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="/getting-started/creating-your-first-mod/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Creating Your First Mod
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -492,6 +533,81 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#setting-up-the-template" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Setting Up the Template
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#updating-assemblyinfo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Updating AssemblyInfo
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#understanding-the-mod-class" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Understanding the Mod Class
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#responding-to-game-events" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Responding to Game Events
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#testing-the-mod" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Testing the Mod
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -565,7 +681,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/parts/" class="md-nav__link">
+      <a href="../../parts/" class="md-nav__link">
         
   
   
@@ -593,7 +709,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/parts/creating-a-part/" class="md-nav__link">
+      <a href="../../parts/creating-a-part/" class="md-nav__link">
         
   
   
@@ -621,7 +737,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/parts/part-definition-reference/" class="md-nav__link">
+      <a href="../../parts/part-definition-reference/" class="md-nav__link">
         
   
   
@@ -649,7 +765,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/parts/item-cost-reference/" class="md-nav__link">
+      <a href="../../parts/item-cost-reference/" class="md-nav__link">
         
   
   
@@ -677,7 +793,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/parts/item-ids-reference/" class="md-nav__link">
+      <a href="../../parts/item-ids-reference/" class="md-nav__link">
         
   
   
@@ -766,7 +882,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/assets/" class="md-nav__link">
+      <a href="../../assets/" class="md-nav__link">
         
   
   
@@ -794,7 +910,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/assets/creating-asset-bundles/" class="md-nav__link">
+      <a href="../../assets/creating-asset-bundles/" class="md-nav__link">
         
   
   
@@ -822,7 +938,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/assets/embedding-assets/" class="md-nav__link">
+      <a href="../../assets/embedding-assets/" class="md-nav__link">
         
   
   
@@ -850,7 +966,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/assets/asset-loader-reference/" class="md-nav__link">
+      <a href="../../assets/asset-loader-reference/" class="md-nav__link">
         
   
   
@@ -878,7 +994,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/assets/asset-utilities-reference/" class="md-nav__link">
+      <a href="../../assets/asset-utilities-reference/" class="md-nav__link">
         
   
   
@@ -923,6 +1039,71 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#setting-up-the-template" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Setting Up the Template
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#updating-assemblyinfo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Updating AssemblyInfo
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#understanding-the-mod-class" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Understanding the Mod Class
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#responding-to-game-events" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Responding to Game Events
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#testing-the-mod" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Testing the Mod
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -935,8 +1116,128 @@
               
               <article class="md-content__inner md-typeset">
                 
-  <h1>404 - Not found</h1>
+                  
 
+
+  
+  
+
+
+<h1 id="creating-your-first-mod">Creating Your First Mod</h1>
+<p>In this guide, you will create a simple StellarDrive mod using the StellarDrive Mod Template.</p>
+<p>The template contains a basic mod that writes a message to the MelonLoaderconsole when the game scene is loaded. We will configure it, build it, and verify that it is working.</p>
+<h2 id="setting-up-the-template">Setting Up the Template</h2>
+<p>Download the StellarDrive Mod Template:</p>
+<p><a href="https://github.com/jollyname/StellarDrive-ModTemplate" target="_blank">StellarDrive-ModTemplate</a></p>
+<p>After downloading the template:</p>
+<ol>
+<li>Open the solution in Visual Studio 2022.</li>
+<li>Rename the solution and project to your mod's name.</li>
+<li>Open <code>Main.cs</code>.</li>
+<li>Rename the namespace to match your mod name.</li>
+<li>Rename the main mod class to match your mod name.</li>
+<li>Fill in the <code>BuildInfo</code> information.</li>
+</ol>
+<p>Your <code>Main.cs</code> should look similar to:</p>
+<div class="highlight"><pre><span></span><code><span class="k">using</span><span class="w"> </span><span class="nn">MelonLoader</span><span class="p">;</span>
+
+<span class="k">namespace</span><span class="w"> </span><span class="nn">MyFirstMod</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">BuildInfo</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">Name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;My First Mod&quot;</span><span class="p">;</span>
+<span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">Description</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;My first StellarDrive mod&quot;</span><span class="p">;</span>
+<span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">Author</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Your Name&quot;</span><span class="p">;</span>
+<span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">Company</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">null</span><span class="p">;</span>
+<span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">Version</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;1.0.0&quot;</span><span class="p">;</span>
+<span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">DownloadLink</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">null</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MyFirstMod</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">MelonMod</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">OnSceneWasLoaded</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">buildIndex</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">sceneName</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="c1">// This checks if the game scene loaded</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">buildIndex</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="p">;</span>
+
+<span class="w">            </span><span class="n">MelonLogger</span><span class="p">.</span><span class="n">Msg</span><span class="p">(</span><span class="s">&quot;This mod seems to work&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">OnSceneWasUnloaded</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">buildIndex</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">sceneName</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="c1">// This checks if the game scene unloaded</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">buildIndex</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h2 id="updating-assemblyinfo">Updating AssemblyInfo</h2>
+<p>Open:</p>
+<div class="highlight"><pre><span></span><code>Properties/AssemblyInfo.cs
+</code></pre></div>
+<p>Replace the old template class names with your new mod class name.</p>
+<p>For example:</p>
+<div class="highlight"><pre><span></span><code><span class="n">ModTemplate</span><span class="p">.</span><span class="n">BuildInfo</span>
+</code></pre></div>
+<p>becomes:</p>
+<div class="highlight"><pre><span></span><code><span class="n">MyFirstMod</span><span class="p">.</span><span class="n">BuildInfo</span>
+</code></pre></div>
+<p>and:</p>
+<div class="highlight"><pre><span></span><code><span class="n">ModTemplate</span><span class="p">.</span><span class="n">ModTemplate</span>
+</code></pre></div>
+<p>becomes:</p>
+<div class="highlight"><pre><span></span><code><span class="n">MyFirstMod</span><span class="p">.</span><span class="n">MyFirstMod</span>
+</code></pre></div>
+<p>This allows MelonLoader to correctly identify your mod.</p>
+<h2 id="understanding-the-mod-class">Understanding the Mod Class</h2>
+<p>Every StellarDrive mod inherits from <code>MelonMod</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MyFirstMod</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">MelonMod</span>
+<span class="p">{</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>MelonLoader automatically creates an instance of this class when the game starts.</p>
+<h2 id="responding-to-game-events">Responding to Game Events</h2>
+<p>The template overrides two methods:</p>
+<div class="highlight"><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">OnSceneWasLoaded</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">buildIndex</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">sceneName</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">buildIndex</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="p">;</span>
+
+<span class="w">    </span><span class="n">MelonLogger</span><span class="p">.</span><span class="n">Msg</span><span class="p">(</span><span class="s">&quot;This mod seems to work&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="k">public</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">OnSceneWasUnloaded</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">buildIndex</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">sceneName</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">buildIndex</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<p><code>OnSceneWasLoaded</code> is called whenever a scene is loaded.</p>
+<p>The example checks that the loaded scene is the main game scene before running any code.</p>
+<div class="highlight"><pre><span></span><code><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">buildIndex</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="p">;</span>
+</code></pre></div>
+<p>This prevents your mod from running in other scenes, like the main menu.</p>
+<h2 id="testing-the-mod">Testing the Mod</h2>
+<p>Build the project.</p>
+<p>Copy the generated DLL into the <code>Mods</code> folder.</p>
+<p>Launch StellarDrive.</p>
+<p>If everything is working correctly, the MelonLoader console should display:</p>
+<div class="highlight"><pre><span></span><code>This mod seems to work
+</code></pre></div>
+<p><strong>Congratulations</strong>! You have successfully created and loaded your first StellarDrive mod.</p>
+<p>In the next section, you'll use the StellarModdingAPI to create your first custom part.</p>
+<p><a href="../../parts/">Creating a Part</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
               </article>
             </div>
           
@@ -979,10 +1280,10 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "/", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "search.suggest", "search.highlight", "content.code.copy", "content.code.annotate"], "search": "/assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "search.suggest", "search.highlight", "content.code.copy", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="/assets/javascripts/bundle.d7400e89.min.js"></script>
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
     
   </body>

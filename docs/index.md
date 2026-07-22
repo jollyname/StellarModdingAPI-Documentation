@@ -56,12 +56,3 @@ Learn how to load and use custom assets:
 - Supported asset types
 
 [Assets](assets/index.md)
-
-### API Reference
-
-Detailed information about available API classes and functions.
-
-## About
-
-The StellarDrive Modding API is designed to make it easier for developers to
-extend StellarDrive with their own custom content.
