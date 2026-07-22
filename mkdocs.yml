@@ -4,10 +4,56 @@ site_description: Documentation for the StellarDrive modding API
 theme:
   name: material
 
+  palette:
+    - scheme: default
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+
+    - scheme: slate
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+    - content.code.annotate
+
 repo_url: https://github.com/jollyname/StellarModdingAPI-Documentation
 repo_name: jollyname/StellarModdingAPI-Documentation
 
 nav:
   - Home: index.md
-  - Getting Started: getting-started.md
-  - API Reference: api-reference.md
+
+  - Getting Started:
+      - Overview: getting-started/index.md
+      - Installing MelonLoader: getting-started/installing-melonloader.md
+      - Creating Your First Mod: getting-started/creating-your-first-mod.md
+      
+  - Parts:
+      - Overview: parts/index.md
+      - Creating a Part: parts/creating-a-part.md
+      - PartDefinition Reference: parts/part-definition-reference.md
+      - ItemCost Reference: parts/item-cost-reference.md
+      - Item IDs: parts/item-ids-reference.md
+
+  - Assets:
+        - Overview: assets/index.md
+        - Creating AssetBundles: assets/creating-asset-bundles.md
+        - Embedding Assets in Your Mod: assets/embedding-assets.md
+        - AssetLoader Reference: assets/asset-loader-reference.md
+        - AssetUtilities Reference: assets/asset-utilities-reference.md
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.highlight
+  - pymdownx.tabbed
+  - attr_list

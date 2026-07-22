@@ -1,26 +1,67 @@
-# StellarModdingAPI
+# StellarDrive Modding API
 
-Welcome to the official documentation for **StellarModdingAPI**, the modding framework for **StellarDrive**.
+Welcome to the documentation for the StellarDrive Modding API.
 
-## What is StellarModdingAPI?
+The StellarDrive Modding API allows developers to create custom content for
+StellarDrive through external mods.
 
-StellarModdingAPI allows developers to extend StellarDrive by creating custom content, behaviors, and gameplay modifications.
+Currently, the API provides tools for creating custom parts and working with
+custom assets through Unity AssetBundles.
 
 ## Features
 
-- Create custom scripts
-- Modify game objects
-- Extend gameplay systems
-- Build community-made content
+Current features:
+
+- Create custom parts
+- Define custom part properties and building costs
+- Load custom assets from Unity AssetBundles
+- Register custom content through the API
+
+The API is actively being expanded with more modding capabilities.
 
 ## Getting Started
 
-New to modding?
+New to StellarDrive modding?
 
-Start here:
+Start by setting up your development environment:
 
-[Installation](installation.md)
+[Getting Started](getting-started/index.md)
 
-Already familiar with the API?
+This section covers:
 
-Check the [API Reference](api/overview.md).
+- Installing MelonLoader
+- Setting up a mod project
+- Creating your first mod
+- Building and testing your mod
+
+## Documentation
+
+### Parts
+
+Learn how to create and register custom parts:
+
+- Part creation
+- Part definitions
+- Part properties
+- Building costs
+
+[Parts](parts/index.md)
+
+### Assets
+
+Learn how to load and use custom assets:
+
+- Unity AssetBundles
+- AssetLoader
+- Supported asset types
+
+[Assets](assets/index.md)
+
+### API Reference
+
+Detailed information about available API classes and functions.
+
+## About
+
+The StellarDrive Modding API is designed to make it easier for developers to
+extend StellarDrive with their own custom content.
