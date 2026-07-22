@@ -17,7 +17,6 @@ theme:
 
   features:
     - navigation.top
-    - navigation.expand
     - navigation.indexes
     - search.suggest
     - search.highlight
