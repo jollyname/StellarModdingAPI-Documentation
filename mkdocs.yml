@@ -16,10 +16,9 @@ theme:
         name: Switch to light mode
 
   features:
-    - navigation.tabs
-    - navigation.sections
-    - navigation.expand
     - navigation.top
+    - navigation.expand
+    - navigation.indexes
     - search.suggest
     - search.highlight
     - content.code.copy
@@ -35,7 +34,7 @@ nav:
       - Overview: getting-started/index.md
       - Installing MelonLoader: getting-started/installing-melonloader.md
       - Creating Your First Mod: getting-started/creating-your-first-mod.md
-      
+
   - Parts:
       - Overview: parts/index.md
       - Creating a Part: parts/creating-a-part.md
@@ -44,11 +43,11 @@ nav:
       - Item IDs: parts/item-ids-reference.md
 
   - Assets:
-        - Overview: assets/index.md
-        - Creating AssetBundles: assets/creating-asset-bundles.md
-        - Embedding Assets in Your Mod: assets/embedding-assets.md
-        - AssetLoader Reference: assets/asset-loader-reference.md
-        - AssetUtilities Reference: assets/asset-utilities-reference.md
+      - Overview: assets/index.md
+      - Creating AssetBundles: assets/creating-asset-bundles.md
+      - Embedding Assets in Your Mod: assets/embedding-assets.md
+      - AssetLoader Reference: assets/asset-loader-reference.md
+      - AssetUtilities Reference: assets/asset-utilities-reference.md
 
 markdown_extensions:
   - admonition
