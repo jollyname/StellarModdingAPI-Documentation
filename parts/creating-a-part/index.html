@@ -559,17 +559,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#initializing-the-api" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Initializing the API
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#creating-a-part_1" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -585,28 +574,6 @@
     <span class="md-ellipsis">
       
         Registering Parts
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#building-the-part-registry" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Building the Part Registry
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#cleaning-the-registry" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Cleaning the Registry
       
     </span>
   </a>
@@ -951,17 +918,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#initializing-the-api" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Initializing the API
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#creating-a-part_1" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -977,28 +933,6 @@
     <span class="md-ellipsis">
       
         Registering Parts
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#building-the-part-registry" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Building the Part Registry
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#cleaning-the-registry" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Cleaning the Registry
       
     </span>
   </a>
@@ -1045,18 +979,18 @@
 <li>Basic properties</li>
 <li>Optional building costs</li>
 </ul>
-<p>Parts are created using a <code>PartDefinition</code>, registered through the API, and then added to the game's build menu.</p>
+<p>Parts are created using a <code>PartDefinition</code> and registered through the API. The API automatically adds registered parts to StellarDrive's build menu.</p>
 <h2 id="loading-assets">Loading Assets</h2>
 <p>Before creating a part, you need to load the assets used by the part.</p>
 <p>The StellarModdingAPI provides <code>AssetLoader</code> for loading assets from Unity AssetBundles.</p>
 <p>Example:</p>
 <div class="highlight"><pre><span></span><code><span class="n">Loader</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">AssetLoader</span><span class="p">(</span>
 <span class="w">    </span><span class="n">MelonAssembly</span><span class="p">.</span><span class="n">Assembly</span><span class="p">,</span>
-<span class="w">    </span><span class="n">LoggerInstance</span><span class="p">,</span>
 <span class="w">    </span><span class="k">new</span><span class="p">[]</span>
 <span class="w">    </span><span class="p">{</span>
 <span class="w">        </span><span class="s">&quot;PottedPlant&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;PottedPlantThumbnail&quot;</span>
-<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="n">LoggerInstance</span>
 <span class="p">);</span>
 </code></pre></div>
 <p>The asset names passed to <code>AssetLoader</code> are the names of the assets that your mod will use later.</p>
@@ -1065,53 +999,38 @@
 <li><code>PottedPlant</code> is the part's model prefab.</li>
 <li><code>PottedPlantThumbnail</code> is the image displayed in the build menu.</li>
 </ul>
-<h2 id="initializing-the-api">Initializing the API</h2>
-<p>Before registering parts, initialize the StellarModdingAPI:</p>
-<div class="highlight"><pre><span></span><code><span class="n">StellarModdingAPI</span><span class="p">.</span><span class="n">Plugin</span><span class="p">.</span><span class="n">Initialize</span><span class="p">();</span>
-</code></pre></div>
-<p>This prepares the internal registries required for custom content.</p>
 <h2 id="creating-a-part_1">Creating a Part</h2>
 <p>Parts are created using <code>PartDefinition</code>.</p>
 <p>A <code>PartDefinition</code> contains all the information required to create a part.</p>
 <p>Example:</p>
-<div class="highlight"><pre><span></span><code><span class="n">PartDefinition</span><span class="w"> </span><span class="n">PottedPlantDefinition</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="p">()</span>
-<span class="p">{</span>
-<span class="w">    </span><span class="n">Name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Potted Plant&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="n">Description</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Potted plant!!!!!!!&quot;</span><span class="p">,</span>
-
-<span class="w">    </span><span class="n">Prefab</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Loader</span><span class="p">.</span><span class="n">GetAsset</span><span class="o">&lt;</span><span class="n">GameObject</span><span class="o">&gt;</span><span class="p">(</span><span class="s">&quot;PottedPlant&quot;</span><span class="p">),</span>
-<span class="w">    </span><span class="n">Thumbnail</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Loader</span><span class="p">.</span><span class="n">GetAsset</span><span class="o">&lt;</span><span class="n">Texture2D</span><span class="o">&gt;</span><span class="p">(</span><span class="s">&quot;PottedPlantThumbnail&quot;</span><span class="p">),</span>
-
-<span class="w">    </span><span class="n">Size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Vector3</span><span class="p">.</span><span class="n">one</span><span class="p">,</span>
-<span class="w">    </span><span class="n">Mass</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1f</span><span class="p">,</span>
-
-<span class="w">    </span><span class="n">Snapping</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SnappingStyle</span><span class="p">.</span><span class="n">PreciseOnAny</span>
-<span class="p">};</span>
+<div class="highlight"><pre><span></span><code><span class="n">PartDefinition</span><span class="w"> </span><span class="n">PottedPlantDefinition</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="p">(</span>
+<span class="w">    </span><span class="n">Name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Potted Plant&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="n">Description</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Potted plant!!!!!!!&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="n">Prefab</span><span class="p">:</span><span class="w"> </span><span class="n">Loader</span><span class="p">.</span><span class="n">GetAsset</span><span class="o">&lt;</span><span class="n">GameObject</span><span class="o">&gt;</span><span class="p">(</span><span class="s">&quot;PottedPlant&quot;</span><span class="p">),</span>
+<span class="w">    </span><span class="n">Thumbnail</span><span class="p">:</span><span class="w"> </span><span class="n">Loader</span><span class="p">.</span><span class="n">GetAsset</span><span class="o">&lt;</span><span class="n">Texture2D</span><span class="o">&gt;</span><span class="p">(</span><span class="s">&quot;PottedPlantThumbnail&quot;</span><span class="p">),</span>
+<span class="w">    </span><span class="n">PhysicalSize</span><span class="p">:</span><span class="w"> </span><span class="n">Vector3</span><span class="p">.</span><span class="n">one</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">0.25f</span><span class="p">,</span>
+<span class="w">    </span><span class="n">Mass</span><span class="p">:</span><span class="w"> </span><span class="mf">1f</span><span class="p">,</span>
+<span class="w">    </span><span class="n">LogicalSize</span><span class="p">:</span><span class="w"> </span><span class="n">Vector3</span><span class="p">.</span><span class="n">one</span><span class="p">,</span>
+<span class="w">    </span><span class="n">Snapping</span><span class="p">:</span><span class="w"> </span><span class="n">SnappingStyle</span><span class="p">.</span><span class="n">PreciseOnAny</span><span class="p">,</span>
+<span class="w">    </span><span class="n">BuildingCost</span><span class="p">:</span>
+<span class="w">    </span><span class="na">[</span>
+<span class="na">        ItemCost.Of(ItemIDs.Fuel, 2)</span>
+<span class="na">    ]</span>
+<span class="p">);</span>
 </code></pre></div>
-<p>The <code>PartDefinition</code> contains the information required to create the part,
-including its name, assets, size, mass, snapping behavior, and optional
-building costs.</p>
+<p>The <code>PartDefinition</code> contains the information required to create the part, including its name, assets, physical and logical size, mass, snapping behavior, and optional building costs.</p>
 <p>For a complete list of available properties, see:</p>
 <p><a href="../part-definition-reference/">PartDefinition Reference</a></p>
 <h2 id="registering-parts">Registering Parts</h2>
 <p>Parts are registered using:</p>
-<div class="highlight"><pre><span></span><code><span class="n">StellarModdingAPI</span><span class="p">.</span><span class="n">Plugin</span><span class="p">.</span><span class="n">RegisterPart</span><span class="p">(</span><span class="n">PottedPlantDefinition</span><span class="p">);</span>
+<div class="highlight"><pre><span></span><code><span class="n">Plugin</span><span class="p">.</span><span class="n">RegisterPart</span><span class="p">(</span><span class="n">PottedPlantDefinition</span><span class="p">);</span>
 </code></pre></div>
-<p>Registered parts are stored as <code>PartDefinition</code> objects internally. When <code>Build()</code> is called, these definitions are converted into game-compatible parts and added to StellarDrive.</p>
-<h2 id="building-the-part-registry">Building the Part Registry</h2>
-<p>After registering all your parts, build the registry:</p>
-<div class="highlight"><pre><span></span><code><span class="n">StellarModdingAPI</span><span class="p">.</span><span class="n">Plugin</span><span class="p">.</span><span class="n">Build</span><span class="p">();</span>
-</code></pre></div>
-<p>This converts the registered part definitions into game-compatible parts and adds them to StellarDrive's build menu.</p>
-<h2 id="cleaning-the-registry">Cleaning the Registry</h2>
-<p>When leaving the game scene, clean the registry:</p>
-<div class="highlight"><pre><span></span><code><span class="n">StellarModdingAPI</span><span class="p">.</span><span class="n">Plugin</span><span class="p">.</span><span class="n">Clean</span><span class="p">();</span>
-</code></pre></div>
-<p>This removes the generated parts from the current game session.</p>
+<p>Once registered, the API automatically converts the part definition into the game's internal format and adds it to StellarDrive's build menu when appropriate. No additional setup is required.</p>
 <h2 id="complete-example">Complete Example</h2>
 <p>A complete part mod looks like this:</p>
 <div class="highlight"><pre><span></span><code><span class="k">using</span><span class="w"> </span><span class="nn">MelonLoader</span><span class="p">;</span>
 <span class="k">using</span><span class="w"> </span><span class="nn">Ship.Interface.Model</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="nn">StellarModdingAPI.Abstract</span><span class="p">;</span>
 <span class="k">using</span><span class="w"> </span><span class="nn">StellarModdingAPI.Assets</span><span class="p">;</span>
 <span class="k">using</span><span class="w"> </span><span class="nn">StellarModdingAPI.Items</span><span class="p">;</span>
 <span class="k">using</span><span class="w"> </span><span class="nn">StellarModdingAPI.Parts</span><span class="p">;</span>
@@ -1125,11 +1044,11 @@ building costs.</p>
 <span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">Description</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Stellar Modding API part test mod&quot;</span><span class="p">;</span>
 <span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">Author</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Jollyname&quot;</span><span class="p">;</span>
 <span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">Company</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">null</span><span class="p">;</span>
-<span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">Version</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;1.0.0&quot;</span><span class="p">;</span>
+<span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">Version</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;1.1.0&quot;</span><span class="p">;</span>
 <span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">DownloadLink</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">null</span><span class="p">;</span>
 <span class="w">    </span><span class="p">}</span>
 
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">SDAPITest</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">MelonMod</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">SDAPITest</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">StellarMelonMod</span>
 <span class="w">    </span><span class="p">{</span>
 <span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="n">AssetLoader</span><span class="w"> </span><span class="n">Loader</span><span class="p">;</span>
 
@@ -1137,11 +1056,11 @@ building costs.</p>
 <span class="w">        </span><span class="p">{</span>
 <span class="w">            </span><span class="n">Loader</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">AssetLoader</span><span class="p">(</span>
 <span class="w">                </span><span class="n">MelonAssembly</span><span class="p">.</span><span class="n">Assembly</span><span class="p">,</span>
-<span class="w">                </span><span class="n">LoggerInstance</span><span class="p">,</span>
 <span class="w">                </span><span class="k">new</span><span class="p">[]</span>
 <span class="w">                </span><span class="p">{</span>
 <span class="w">                    </span><span class="s">&quot;PottedPlant&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;PottedPlantThumbnail&quot;</span>
-<span class="w">                </span><span class="p">}</span>
+<span class="w">                </span><span class="p">},</span>
+<span class="w">                </span><span class="n">LoggerInstance</span>
 <span class="w">            </span><span class="p">);</span>
 <span class="w">        </span><span class="p">}</span>
 
@@ -1149,41 +1068,27 @@ building costs.</p>
 <span class="w">        </span><span class="p">{</span>
 <span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">buildIndex</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="p">;</span>
 
-<span class="w">            </span><span class="n">StellarModdingAPI</span><span class="p">.</span><span class="n">Plugin</span><span class="p">.</span><span class="n">Initialize</span><span class="p">();</span>
-
-<span class="w">            </span><span class="n">PartDefinition</span><span class="w"> </span><span class="n">PottedPlantDefinition</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="p">()</span>
-<span class="w">            </span><span class="p">{</span>
-<span class="w">                </span><span class="n">Name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Potted Plant&quot;</span><span class="p">,</span>
-<span class="w">                </span><span class="n">Description</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Potted plant!!!!!!!&quot;</span><span class="p">,</span>
-
-<span class="w">                </span><span class="n">Prefab</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Loader</span><span class="p">.</span><span class="n">GetAsset</span><span class="o">&lt;</span><span class="n">GameObject</span><span class="o">&gt;</span><span class="p">(</span><span class="s">&quot;PottedPlant&quot;</span><span class="p">),</span>
-<span class="w">                </span><span class="n">Thumbnail</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Loader</span><span class="p">.</span><span class="n">GetAsset</span><span class="o">&lt;</span><span class="n">Texture2D</span><span class="o">&gt;</span><span class="p">(</span><span class="s">&quot;PottedPlantThumbnail&quot;</span><span class="p">),</span>
-
-<span class="w">                </span><span class="n">Size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Vector3</span><span class="p">.</span><span class="n">one</span><span class="p">,</span>
-<span class="w">                </span><span class="n">Mass</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1f</span><span class="p">,</span>
-
-<span class="w">                </span><span class="n">Snapping</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SnappingStyle</span><span class="p">.</span><span class="n">PreciseOnAny</span><span class="p">,</span>
-<span class="w">                </span><span class="n">BuildingCost</span><span class="w"> </span><span class="o">=</span>
+<span class="w">            </span><span class="n">PartDefinition</span><span class="w"> </span><span class="n">PottedPlantDefinition</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="p">(</span>
+<span class="w">                </span><span class="n">Name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Potted Plant&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="n">Description</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Potted plant!!!!!!!&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="n">Prefab</span><span class="p">:</span><span class="w"> </span><span class="n">Loader</span><span class="p">.</span><span class="n">GetAsset</span><span class="o">&lt;</span><span class="n">GameObject</span><span class="o">&gt;</span><span class="p">(</span><span class="s">&quot;PottedPlant&quot;</span><span class="p">),</span>
+<span class="w">                </span><span class="n">Thumbnail</span><span class="p">:</span><span class="w"> </span><span class="n">Loader</span><span class="p">.</span><span class="n">GetAsset</span><span class="o">&lt;</span><span class="n">Texture2D</span><span class="o">&gt;</span><span class="p">(</span><span class="s">&quot;PottedPlantThumbnail&quot;</span><span class="p">),</span>
+<span class="w">                </span><span class="n">PhysicalSize</span><span class="p">:</span><span class="w"> </span><span class="n">Vector3</span><span class="p">.</span><span class="n">one</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">0.25f</span><span class="p">,</span>
+<span class="w">                </span><span class="n">Mass</span><span class="p">:</span><span class="w"> </span><span class="mf">1f</span><span class="p">,</span>
+<span class="w">                </span><span class="n">LogicalSize</span><span class="p">:</span><span class="w"> </span><span class="n">Vector3</span><span class="p">.</span><span class="n">one</span><span class="p">,</span>
+<span class="w">                </span><span class="n">Snapping</span><span class="p">:</span><span class="w"> </span><span class="n">SnappingStyle</span><span class="p">.</span><span class="n">PreciseOnAny</span><span class="p">,</span>
+<span class="w">                </span><span class="n">BuildingCost</span><span class="p">:</span>
 <span class="w">                </span><span class="na">[</span>
-<span class="na">                    ItemCost.Of(100, 2)</span>
+<span class="na">                    ItemCost.Of(ItemIDs.Fuel, 2)</span>
 <span class="na">                ]</span>
-<span class="w">            </span><span class="p">};</span>
+<span class="w">            </span><span class="p">);</span>
 
-<span class="w">            </span><span class="n">StellarModdingAPI</span><span class="p">.</span><span class="n">Plugin</span><span class="p">.</span><span class="n">RegisterPart</span><span class="p">(</span><span class="n">PottedPlantDefinition</span><span class="p">);</span>
-
-<span class="w">            </span><span class="n">StellarModdingAPI</span><span class="p">.</span><span class="n">Plugin</span><span class="p">.</span><span class="n">Build</span><span class="p">();</span>
-<span class="w">        </span><span class="p">}</span>
-
-<span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">OnSceneWasUnloaded</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">buildIndex</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">sceneName</span><span class="p">)</span>
-<span class="w">        </span><span class="p">{</span>
-<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">buildIndex</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="p">;</span>
-
-<span class="w">            </span><span class="n">StellarModdingAPI</span><span class="p">.</span><span class="n">Plugin</span><span class="p">.</span><span class="n">Clean</span><span class="p">();</span>
+<span class="w">            </span><span class="n">Plugin</span><span class="p">.</span><span class="n">RegisterPart</span><span class="p">(</span><span class="n">PottedPlantDefinition</span><span class="p">);</span>
 <span class="w">        </span><span class="p">}</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
-<p><strong>Congratulations</strong>! You have created your first custom StellarDrive part.</p>
+<p><strong>Congratulations!</strong> You have created your first custom StellarDrive part.</p>
 
 
 

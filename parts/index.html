@@ -877,9 +877,15 @@
 <ul>
 <li>Name and description</li>
 <li>Model and thumbnail assets</li>
-<li>Size and mass</li>
+<li>Physical and logical size</li>
+<li>Mass</li>
 <li>Snapping behavior</li>
 <li>Building costs</li>
+</ul>
+<p>The part definition separates a part's physical size from its logical size:</p>
+<ul>
+<li><code>PhysicalSize</code> determines the part's collision and placement in the world.</li>
+<li><code>LogicalSize</code> determines how the part behaves when snapping to other parts and how it occupies the building grid.</li>
 </ul>
 <p>Once a part is registered, the API converts the definition into the game's internal part format and adds it to the build menu.</p>
 <h2 id="part-workflow">Part Workflow</h2>

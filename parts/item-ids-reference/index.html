@@ -928,19 +928,29 @@
 
 <h1 id="items">Items</h1>
 <p>This page contains the item IDs available in StellarDrive.</p>
-<p>Item IDs are used when creating building costs for custom parts with <code>ItemCost</code>.</p>
+<p>Items are used when creating building costs for custom parts with <code>ItemCost</code>.</p>
 <p>Example:</p>
 <div class="highlight"><pre><span></span><code><span class="n">BuildingCost</span><span class="w"> </span><span class="o">=</span>
 <span class="na">[</span>
-<span class="na">    ItemCost.Of(100, 5)</span>
+<span class="na">    ItemCost.Of(ItemIDs.Fuel, 5)</span>
 <span class="na">]</span>
 </code></pre></div>
-<p>The first value is the item ID, and the second value is the required amount.</p>
+<p>The first value is the item identifier (<code>ItemID</code>), and the second value is the required amount.</p>
+<p>The StellarModdingAPI provides common item identifiers through the <code>ItemIDs</code> class:</p>
+<div class="highlight"><pre><span></span><code><span class="n">ItemIDs</span><span class="p">.</span><span class="n">BuildTool</span>
+<span class="n">ItemIDs</span><span class="p">.</span><span class="n">RecyclerTool</span>
+<span class="n">ItemIDs</span><span class="p">.</span><span class="n">MiningLaser</span>
+<span class="n">ItemIDs</span><span class="p">.</span><span class="n">Fuel</span>
+<span class="n">ItemIDs</span><span class="p">.</span><span class="n">Iron</span>
+<span class="n">ItemIDs</span><span class="p">.</span><span class="n">Glass</span>
+<span class="n">ItemIDs</span><span class="p">.</span><span class="n">ExoticMatter</span>
+<span class="n">ItemIDs</span><span class="p">.</span><span class="n">Aluminum</span>
+</code></pre></div>
 <h2 id="available-items">Available Items</h2>
 <table>
 <thead>
 <tr>
-<th>ID</th>
+<th>ItemID</th>
 <th>Name</th>
 </tr>
 </thead>
@@ -981,9 +991,11 @@
 </table>
 <h2 id="finding-item-ids">Finding Item IDs</h2>
 <p>The StellarModdingAPI can display all available items and their IDs while the game is running.</p>
-<p>Press: <code>F8</code></p>
+<p>Press:</p>
+<div class="highlight"><pre><span></span><code>F8
+</code></pre></div>
 <p>The item list will be printed to the MelonLoader console.</p>
-<p>Use these IDs with ItemCost.Of() when creating custom part building costs.</p>
+<p>Use the provided <code>ItemIDs</code> values with <code>ItemCost.Of()</code> when creating custom part building costs.</p>
 
 
 
