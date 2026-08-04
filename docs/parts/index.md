@@ -12,9 +12,15 @@ A `PartDefinition` contains the information needed to create a part, including:
 
 - Name and description
 - Model and thumbnail assets
-- Size and mass
+- Physical and logical size
+- Mass
 - Snapping behavior
 - Building costs
+
+The part definition separates a part's physical size from its logical size:
+
+- `PhysicalSize` determines the part's collision and placement in the world.
+- `LogicalSize` determines how the part behaves when snapping to other parts and how it occupies the building grid.
 
 Once a part is registered, the API converts the definition into the game's internal part format and adds it to the build menu.
 

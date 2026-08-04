@@ -15,11 +15,11 @@ Example:
 ```csharp
 Loader = new AssetLoader(
     MelonAssembly.Assembly,
-    LoggerInstance,
     new[]
     {
         "PottedPlant", "PottedPlantThumbnail"
-    }
+    },
+    LoggerInstance
 );
 ```
 

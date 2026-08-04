@@ -1,7 +1,6 @@
 # PartDefinition Reference
 
-`PartDefinition` contains all information required by the StellarModdingAPI
-to create a custom StellarDrive part.
+`PartDefinition` contains all the information required by the StellarModdingAPI to create a custom StellarDrive part.
 
 Namespace:
 
@@ -12,19 +11,16 @@ using StellarModdingAPI.Parts;
 Example:
 
 ```csharp
-PartDefinition definition = new()
-{
-    Name = "Potted Plant",
-    Description = "A decorative plant",
-
-    Prefab = Loader.GetAsset<GameObject>("PottedPlant"),
-    Thumbnail = Loader.GetAsset<Texture2D>("PottedPlantThumbnail"),
-
-    Size = Vector3.one,
-    Mass = 1f,
-
-    Snapping = SnappingStyle.PreciseOnAny
-};
+PartDefinition definition = new(
+    Name: "Potted Plant",
+    Description: "A decorative plant",
+    Prefab: Loader.GetAsset<GameObject>("PottedPlant"),
+    Thumbnail: Loader.GetAsset<Texture2D>("PottedPlantThumbnail"),
+    PhysicalSize: Vector3.one * 0.25f,
+    Mass: 1f,
+    LogicalSize: Vector3.one,
+    Snapping: SnappingStyle.PreciseOnAny
+);
 ```
 
 ## Properties
@@ -40,7 +36,7 @@ The display name of the part shown in the StellarDrive build menu.
 Example:
 
 ```csharp
-Name = "Potted Plant"
+Name: "Potted Plant"
 ```
 
 ---
@@ -56,7 +52,7 @@ The description displayed when viewing the part in the build menu.
 Example:
 
 ```csharp
-Description = "A decorative plant"
+Description: "A decorative plant"
 ```
 
 ---
@@ -67,14 +63,14 @@ Description = "A decorative plant"
 GameObject Prefab
 ```
 
-The Unity `GameObject` used as visuals when the part is placed in the world, it should only contain a mesh renderer with materials and a mesh filter.
+The Unity `GameObject` used as the visual representation of the part when placed in the world. It should only contain a `MeshRenderer`, its materials, and a `MeshFilter`.
 
 It can be loaded from an AssetBundle using `AssetLoader`.
 
 Example:
 
 ```csharp
-Prefab = Loader.GetAsset<GameObject>("PottedPlant")
+Prefab: Loader.GetAsset<GameObject>("PottedPlant")
 ```
 
 ---
@@ -82,34 +78,34 @@ Prefab = Loader.GetAsset<GameObject>("PottedPlant")
 ### Thumbnail
 
 ```csharp
-Texture2D Thumbnail
+Texture2D? Thumbnail
 ```
 
 The image displayed for the part in the build menu.
 
+This value is optional. If `null`, no thumbnail will be displayed.
+
 Example:
 
 ```csharp
-Thumbnail = Loader.GetAsset<Texture2D>("PottedPlantThumbnail")
+Thumbnail: Loader.GetAsset<Texture2D>("PottedPlantThumbnail")
 ```
 
 ---
 
-### Size
+### PhysicalSize
 
 ```csharp
-Vector3 Size
+Vector3 PhysicalSize
 ```
 
-Controls the occupied building space of the part in the building grid.
+Defines the physical dimensions of the part used for collision and placement in the world.
 
 Example:
 
 ```csharp
-Size = Vector3.one
+PhysicalSize: Vector3.one * 0.25f
 ```
-
-`Vector3.one` creates a part occupying a `1x1x1` building space.
 
 ---
 
@@ -124,7 +120,23 @@ Defines the physical mass of the part.
 Example:
 
 ```csharp
-Mass = 1f
+Mass: 1f
+```
+
+---
+
+### LogicalSize
+
+```csharp
+Vector3 LogicalSize
+```
+
+Defines the space the part occupies in the building grid and how it snaps to other parts.
+
+Example:
+
+```csharp
+LogicalSize: Vector3.one
 ```
 
 ---
@@ -137,10 +149,16 @@ SnappingStyle Snapping
 
 Controls how the part snaps to other building pieces.
 
+Defaults to:
+
+```csharp
+SnappingStyle.PreciseOnAny
+```
+
 Example:
 
 ```csharp
-Snapping = SnappingStyle.PreciseOnAny
+Snapping: SnappingStyle.PreciseOnAny
 ```
 
 ---
@@ -148,7 +166,7 @@ Snapping = SnappingStyle.PreciseOnAny
 ### BuildingCost
 
 ```csharp
-ItemCost[] BuildingCost
+List<ItemInstance> BuildingCost
 ```
 
 Defines the resources required to build the part.
@@ -156,9 +174,9 @@ Defines the resources required to build the part.
 Example:
 
 ```csharp
-BuildingCost =
+BuildingCost:
 [
-    ItemCost.Of(100, 2)
+    ItemCost.Of(ItemIDs.Fuel, 2)
 ]
 ```
 

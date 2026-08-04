@@ -4,12 +4,12 @@ This guide will walk you through creating a custom part and adding it to the Ste
 
 A custom part requires:
 
-- A model prefab
-- A thumbnail
-- Basic properties
-- Optional building costs
+* A model prefab
+* A thumbnail
+* Basic properties
+* Optional building costs
 
-Parts are created using a `PartDefinition`, registered through the API, and then added to the game's build menu.
+Parts are created using a `PartDefinition` and registered through the API. The API automatically adds registered parts to StellarDrive's build menu.
 
 ## Loading Assets
 
@@ -22,11 +22,11 @@ Example:
 ```csharp
 Loader = new AssetLoader(
     MelonAssembly.Assembly,
-    LoggerInstance,
     new[]
     {
         "PottedPlant", "PottedPlantThumbnail"
-    }
+    },
+    LoggerInstance
 );
 ```
 
@@ -34,18 +34,8 @@ The asset names passed to `AssetLoader` are the names of the assets that your mo
 
 In this example:
 
-- `PottedPlant` is the part's model prefab.
-- `PottedPlantThumbnail` is the image displayed in the build menu.
-
-## Initializing the API
-
-Before registering parts, initialize the StellarModdingAPI:
-
-```csharp
-StellarModdingAPI.Plugin.Initialize();
-```
-
-This prepares the internal registries required for custom content.
+* `PottedPlant` is the part's model prefab.
+* `PottedPlantThumbnail` is the image displayed in the build menu.
 
 ## Creating a Part
 
@@ -56,24 +46,23 @@ A `PartDefinition` contains all the information required to create a part.
 Example:
 
 ```csharp
-PartDefinition PottedPlantDefinition = new()
-{
-    Name = "Potted Plant",
-    Description = "Potted plant!!!!!!!",
-
-    Prefab = Loader.GetAsset<GameObject>("PottedPlant"),
-    Thumbnail = Loader.GetAsset<Texture2D>("PottedPlantThumbnail"),
-
-    Size = Vector3.one,
-    Mass = 1f,
-
-    Snapping = SnappingStyle.PreciseOnAny
-};
+PartDefinition PottedPlantDefinition = new(
+    Name: "Potted Plant",
+    Description: "Potted plant!!!!!!!",
+    Prefab: Loader.GetAsset<GameObject>("PottedPlant"),
+    Thumbnail: Loader.GetAsset<Texture2D>("PottedPlantThumbnail"),
+    PhysicalSize: Vector3.one * 0.25f,
+    Mass: 1f,
+    LogicalSize: Vector3.one,
+    Snapping: SnappingStyle.PreciseOnAny,
+    BuildingCost:
+    [
+        ItemCost.Of(ItemIDs.Fuel, 2)
+    ]
+);
 ```
 
-The `PartDefinition` contains the information required to create the part,
-including its name, assets, size, mass, snapping behavior, and optional
-building costs.
+The `PartDefinition` contains the information required to create the part, including its name, assets, physical and logical size, mass, snapping behavior, and optional building costs.
 
 For a complete list of available properties, see:
 
@@ -84,30 +73,10 @@ For a complete list of available properties, see:
 Parts are registered using:
 
 ```csharp
-StellarModdingAPI.Plugin.RegisterPart(PottedPlantDefinition);
+Plugin.RegisterPart(PottedPlantDefinition);
 ```
 
-Registered parts are stored as `PartDefinition` objects internally. When `Build()` is called, these definitions are converted into game-compatible parts and added to StellarDrive.
-
-## Building the Part Registry
-
-After registering all your parts, build the registry:
-
-```csharp
-StellarModdingAPI.Plugin.Build();
-```
-
-This converts the registered part definitions into game-compatible parts and adds them to StellarDrive's build menu.
-
-## Cleaning the Registry
-
-When leaving the game scene, clean the registry:
-
-```csharp
-StellarModdingAPI.Plugin.Clean();
-```
-
-This removes the generated parts from the current game session.
+Once registered, the API automatically converts the part definition into the game's internal format and adds it to StellarDrive's build menu when appropriate. No additional setup is required.
 
 ## Complete Example
 
@@ -116,6 +85,7 @@ A complete part mod looks like this:
 ```csharp
 using MelonLoader;
 using Ship.Interface.Model;
+using StellarModdingAPI.Abstract;
 using StellarModdingAPI.Assets;
 using StellarModdingAPI.Items;
 using StellarModdingAPI.Parts;
@@ -129,11 +99,11 @@ namespace SDAPITest
         public const string Description = "Stellar Modding API part test mod";
         public const string Author = "Jollyname";
         public const string Company = null;
-        public const string Version = "1.0.0";
+        public const string Version = "1.1.0";
         public const string DownloadLink = null;
     }
 
-    public class SDAPITest : MelonMod
+    public class SDAPITest : StellarMelonMod
     {
         public static AssetLoader Loader;
 
@@ -141,11 +111,11 @@ namespace SDAPITest
         {
             Loader = new AssetLoader(
                 MelonAssembly.Assembly,
-                LoggerInstance,
                 new[]
                 {
                     "PottedPlant", "PottedPlantThumbnail"
-                }
+                },
+                LoggerInstance
             );
         }
 
@@ -153,39 +123,25 @@ namespace SDAPITest
         {
             if (buildIndex != 1) return;
 
-            StellarModdingAPI.Plugin.Initialize();
-
-            PartDefinition PottedPlantDefinition = new()
-            {
-                Name = "Potted Plant",
-                Description = "Potted plant!!!!!!!",
-
-                Prefab = Loader.GetAsset<GameObject>("PottedPlant"),
-                Thumbnail = Loader.GetAsset<Texture2D>("PottedPlantThumbnail"),
-
-                Size = Vector3.one,
-                Mass = 1f,
-
-                Snapping = SnappingStyle.PreciseOnAny,
-                BuildingCost =
+            PartDefinition PottedPlantDefinition = new(
+                Name: "Potted Plant",
+                Description: "Potted plant!!!!!!!",
+                Prefab: Loader.GetAsset<GameObject>("PottedPlant"),
+                Thumbnail: Loader.GetAsset<Texture2D>("PottedPlantThumbnail"),
+                PhysicalSize: Vector3.one * 0.25f,
+                Mass: 1f,
+                LogicalSize: Vector3.one,
+                Snapping: SnappingStyle.PreciseOnAny,
+                BuildingCost:
                 [
-                    ItemCost.Of(100, 2)
+                    ItemCost.Of(ItemIDs.Fuel, 2)
                 ]
-            };
+            );
 
-            StellarModdingAPI.Plugin.RegisterPart(PottedPlantDefinition);
-
-            StellarModdingAPI.Plugin.Build();
-        }
-
-        public override void OnSceneWasUnloaded(int buildIndex, string sceneName)
-        {
-            if (buildIndex != 1) return;
-
-            StellarModdingAPI.Plugin.Clean();
+            Plugin.RegisterPart(PottedPlantDefinition);
         }
     }
 }
 ```
 
-**Congratulations**! You have created your first custom StellarDrive part.
+**Congratulations!** You have created your first custom StellarDrive part.
