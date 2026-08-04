@@ -373,6 +373,17 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#planets" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Planets
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -725,6 +736,8 @@
       
         
       
+        
+      
     
     
     
@@ -734,6 +747,223 @@
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="planets/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Planets
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Planets
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="planets/creating-a-planet/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Creating a Planet
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="planets/planet-spawn-request-reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PlanetSpawnRequest Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="planets/planet-material-utility-reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PlanetMaterialUtility Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="planets/terrain-material-config-reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PlanetMaterialConfig reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="planets/terrain-styles-reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Terrain Styles Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
         
           
           <div class="md-nav__link md-nav__container">
@@ -755,14 +985,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -975,6 +1205,17 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#planets" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Planets
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1004,13 +1245,14 @@
 <p>Welcome to the documentation for the StellarDrive Modding API.</p>
 <p>The StellarDrive Modding API allows developers to create custom content for
 StellarDrive through external mods.</p>
-<p>Currently, the API provides tools for creating custom parts and working with
-custom assets through Unity AssetBundles.</p>
+<p>Currently, the API provides tools for creating custom parts, custom planets,
+and working with custom assets through Unity AssetBundles.</p>
 <h2 id="features">Features</h2>
 <p>Current features:</p>
 <ul>
 <li>Create custom parts</li>
 <li>Define custom part properties and building costs</li>
+<li>Clone and customize custom planets, including terrain, materials, and position</li>
 <li>Load custom assets from Unity AssetBundles</li>
 <li>Register custom content through the API</li>
 </ul>
@@ -1044,6 +1286,15 @@ custom assets through Unity AssetBundles.</p>
 <li>Supported asset types</li>
 </ul>
 <p><a href="assets/">Assets</a></p>
+<h3 id="planets">Planets</h3>
+<p>Learn how to create custom planets:</p>
+<ul>
+<li>Cloning an existing planet</li>
+<li>Terrain and material customization</li>
+<li>Terrain style presets</li>
+<li>Position and network registration</li>
+</ul>
+<p><a href="planets/">Planets</a></p>
 
 
 
