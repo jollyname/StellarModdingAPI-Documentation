@@ -25,7 +25,7 @@
     
     
       
-        <title>AssetLoader Reference - StellarModdingAPI Documentation</title>
+        <title>AssetCollection Reference - StellarModdingAPI Documentation</title>
       
     
     
@@ -76,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#assetloader" class="md-skip">
+        <a href="#assetcollection" class="md-skip">
           Skip to content
         </a>
       
@@ -112,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              AssetLoader Reference
+              AssetCollection Reference
             
           </span>
         </div>
@@ -968,7 +968,7 @@
   <span class="md-ellipsis">
     
   
-    AssetLoader Reference
+    AssetCollection Reference
   
 
     
@@ -986,7 +986,7 @@
   <span class="md-ellipsis">
     
   
-    AssetLoader Reference
+    AssetCollection Reference
   
 
     
@@ -1012,13 +1012,30 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#creating-an-assetloader" class="md-nav__link">
+  <a href="#creating-an-assetcollection" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Creating an AssetLoader
+        Creating an AssetCollection
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Creating an AssetCollection">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#manual-loading" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Manual loading
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1126,13 +1143,30 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#creating-an-assetloader" class="md-nav__link">
+  <a href="#creating-an-assetcollection" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Creating an AssetLoader
+        Creating an AssetCollection
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Creating an AssetCollection">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#manual-loading" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Manual loading
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1189,57 +1223,82 @@
   
 
 
-<h1 id="assetloader">AssetLoader</h1>
-<p><code>AssetLoader</code> loads assets from AssetBundles embedded in your mod assembly.</p>
+<h1 id="assetcollection">AssetCollection</h1>
+<p><code>AssetCollection</code> loads assets from AssetBundles embedded in your mod assembly.</p>
 <p>Namespace:</p>
 <div class="highlight"><pre><span></span><code><span class="k">using</span><span class="w"> </span><span class="nn">StellarModdingAPI.Assets</span><span class="p">;</span>
 </code></pre></div>
-<h2 id="creating-an-assetloader">Creating an AssetLoader</h2>
-<p>Example:</p>
-<div class="highlight"><pre><span></span><code><span class="n">Loader</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">AssetLoader</span><span class="p">(</span>
-<span class="w">    </span><span class="n">MelonAssembly</span><span class="p">.</span><span class="n">Assembly</span><span class="p">,</span>
-<span class="w">    </span><span class="k">new</span><span class="p">[]</span>
+<h2 id="creating-an-assetcollection">Creating an AssetCollection</h2>
+<p>Rather than listing asset names manually, mark each asset key as a constant
+with the <code>[AssetKey]</code> attribute, then load them all at once with
+<code>AssetCollection.LoadFrom&lt;T&gt;()</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">sealed</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Mod</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">StellarMelonMod</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="n">AssetCollection</span><span class="o">?</span><span class="w"> </span><span class="n">Assets</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">get</span><span class="p">;</span><span class="w"> </span><span class="k">private</span><span class="w"> </span><span class="k">set</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+
+<span class="w">    </span><span class="na">[AssetKey]</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">PottedPlantKey</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;PottedPlant&quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="na">[AssetKey]</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">PottedPlantThumbnailKey</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;PottedPlantThumbnail&quot;</span><span class="p">;</span>
+
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">LoadAssets</span><span class="p">()</span>
 <span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="s">&quot;PottedPlant&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;PottedPlantThumbnail&quot;</span>
-<span class="w">    </span><span class="p">},</span>
-<span class="w">    </span><span class="n">LoggerInstance</span>
-<span class="p">);</span>
+<span class="w">        </span><span class="n">Assets</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">AssetCollection</span><span class="p">.</span><span class="n">LoadFrom</span><span class="o">&lt;</span><span class="n">Mod</span><span class="o">&gt;</span><span class="p">(</span><span class="n">logger</span><span class="p">:</span><span class="w"> </span><span class="n">LoggerInstance</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
 </code></pre></div>
-<p>The names provided to <code>AssetLoader</code> are the asset names that your mod wants
-to load.</p>
+<p><code>LoadFrom&lt;T&gt;()</code> scans <code>T</code> for members marked with <code>[AssetKey]</code>, pulls their
+string values as the asset names to load, and infers the assembly from <code>T</code>
+automatically — no need to pass <code>MelonAssembly.Assembly</code> or build the key
+array yourself.</p>
 <p>In this example:</p>
 <ul>
 <li><code>PottedPlant</code> is a GameObject prefab.</li>
 <li><code>PottedPlantThumbnail</code> is a Texture2D image.</li>
 </ul>
-<p>A logger isn't required. If you don't provide one, <code>AssetLoader</code> simply
+<p>A logger isn't required. If you don't provide one, <code>AssetCollection</code> simply
 won't log anything, but it will still load assets normally.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p><code>AssetLoader</code> should be created after <code>OnLateInitializeMelon</code>. Creating
-it earlier may cause an error, since Unity's asset systems may
-not be fully initialized yet.</p>
+<p><code>LoadAssets()</code> is called by the framework at the appropriate point in
+the mod lifecycle, so you don't need to worry about ordering it after
+<code>OnLateInitializeMelon</code> yourself — just do your asset loading inside
+the <code>LoadAssets()</code> override, not in the constructor or <code>OnInitializeMelon</code>.</p>
 </div>
+<h3 id="manual-loading">Manual loading</h3>
+<p>If your asset keys aren't declared on the type you're loading from (for
+example, loading assets defined in a different class, or assembling the key
+list dynamically), you can call the explicit overload instead:</p>
+<div class="highlight"><pre><span></span><code><span class="n">Assets</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">AssetCollection</span><span class="p">.</span><span class="n">LoadFrom</span><span class="p">(</span>
+<span class="w">    </span><span class="n">assembly</span><span class="p">:</span><span class="w"> </span><span class="n">MelonAssembly</span><span class="p">.</span><span class="n">Assembly</span><span class="p">,</span>
+<span class="w">    </span><span class="n">assetKeys</span><span class="p">:</span><span class="w"> </span><span class="n">AssetUtilities</span><span class="p">.</span><span class="n">ExtractKeysFrom</span><span class="o">&lt;</span><span class="n">Mod</span><span class="o">&gt;</span><span class="p">(),</span>
+<span class="w">    </span><span class="n">logger</span><span class="p">:</span><span class="w"> </span><span class="n">LoggerInstance</span>
+<span class="p">);</span>
+</code></pre></div>
+<p>This is equivalent to <code>LoadFrom&lt;Mod&gt;(logger: LoggerInstance)</code> and mainly
+useful for these edge cases — for a typical mod, prefer the generic
+shorthand above.</p>
 <h2 id="loading-assets">Loading Assets</h2>
-<p>After creating an <code>AssetLoader</code>, assets can be retrieved using:</p>
-<div class="highlight"><pre><span></span><code><span class="n">Loader</span><span class="p">.</span><span class="n">GetAsset</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">(</span><span class="s">&quot;AssetName&quot;</span><span class="p">)</span>
+<p>After creating an <code>AssetCollection</code>, assets can be retrieved using:</p>
+<div class="highlight"><pre><span></span><code><span class="n">Assets</span><span class="p">.</span><span class="n">GetAsset</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">(</span><span class="s">&quot;AssetName&quot;</span><span class="p">)</span>
 </code></pre></div>
 <p>Example:</p>
-<div class="highlight"><pre><span></span><code><span class="n">GameObject</span><span class="w"> </span><span class="n">prefab</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Loader</span><span class="p">.</span><span class="n">GetAsset</span><span class="o">&lt;</span><span class="n">GameObject</span><span class="o">&gt;</span><span class="p">(</span><span class="s">&quot;PottedPlant&quot;</span><span class="p">);</span>
+<div class="highlight"><pre><span></span><code><span class="n">GameObject</span><span class="w"> </span><span class="n">prefab</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Assets</span><span class="p">.</span><span class="n">GetAsset</span><span class="o">&lt;</span><span class="n">GameObject</span><span class="o">&gt;</span><span class="p">(</span><span class="n">Mod</span><span class="p">.</span><span class="n">PottedPlantKey</span><span class="p">);</span>
 
-<span class="n">Texture2D</span><span class="w"> </span><span class="n">thumbnail</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Loader</span><span class="p">.</span><span class="n">GetAsset</span><span class="o">&lt;</span><span class="n">Texture2D</span><span class="o">&gt;</span><span class="p">(</span><span class="s">&quot;PottedPlantThumbnail&quot;</span><span class="p">);</span>
+<span class="n">Texture2D</span><span class="w"> </span><span class="n">thumbnail</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Assets</span><span class="p">.</span><span class="n">GetAsset</span><span class="o">&lt;</span><span class="n">Texture2D</span><span class="o">&gt;</span><span class="p">(</span><span class="n">Mod</span><span class="p">.</span><span class="n">PottedPlantThumbnailKey</span><span class="p">);</span>
 </code></pre></div>
-<p>The generic type should match the Unity asset type being loaded.</p>
+<p>The generic type should match the Unity asset type being loaded. Referencing
+the <code>[AssetKey]</code> constant (rather than retyping the string) avoids typos and
+keeps the key defined in one place.</p>
 <h2 id="asset-requirements">Asset Requirements</h2>
 <p>Assets must:</p>
 <ul>
 <li>Be included in an AssetBundle</li>
 <li>Have a unique asset name</li>
-<li>Be included when creating the AssetLoader</li>
+<li>Be marked with <code>[AssetKey]</code> on the type passed to <code>LoadFrom&lt;T&gt;()</code> (or
+  included in the <code>assetKeys</code> collection, for manual loading)</li>
 </ul>
-<p>If an asset cannot be found, <code>AssetLoader</code> will log an error and return null.</p>
+<p>If an asset cannot be found, <code>AssetCollection</code> will log an error and return null.</p>
 <h2 id="supported-asset-types">Supported Asset Types</h2>
-<p><code>AssetLoader</code> can load any Unity Object stored in an AssetBundle.</p>
+<p><code>AssetCollection</code> can load any Unity Object stored in an AssetBundle.</p>
 <p>Examples:</p>
 <table>
 <thead>

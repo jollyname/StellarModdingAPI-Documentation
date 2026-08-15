@@ -1104,14 +1104,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../assets/asset-loader-reference/" class="md-nav__link">
+      <a href="../../assets/asset-collection-reference/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    AssetLoader Reference
+    AssetCollection Reference
   
 
     
@@ -1318,7 +1318,7 @@
 </code></pre></div>
 <p>You can build a <code>TerrainMaterialConfig[]</code> in two ways:</p>
 <ul>
-<li><strong>Construct entries manually</strong>, supplying your own textures (e.g. loaded via <code>AssetLoader</code>). Use this when you want fully custom materials.</li>
+<li><strong>Construct entries manually</strong>, supplying your own textures (e.g. loaded via <code>AssetCollection</code>). Use this when you want fully custom materials.</li>
 <li><strong>Use <code>PlanetMaterialUtility.BuildFromDonors</code></strong>, which copies materials (and optionally re-tints them) from existing in-scene planets. Use this when you just want to reuse or recolor materials that already exist in the game.</li>
 </ul>
 <p>Both approaches produce the same <code>TerrainMaterialConfig[]</code> type and can be assigned directly to <code>PlanetSpawnRequest.Materials</code>.</p>
@@ -1363,9 +1363,9 @@
 <span class="w">    </span><span class="c1">// Grass</span>
 <span class="w">    </span><span class="k">new</span><span class="w"> </span><span class="n">TerrainMaterialConfig</span>
 <span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="n">albedoTexture</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Loader</span><span class="p">.</span><span class="n">GetAsset</span><span class="o">&lt;</span><span class="n">Texture2D</span><span class="o">&gt;</span><span class="p">(</span><span class="s">&quot;Grass_Color&quot;</span><span class="p">),</span>
-<span class="w">        </span><span class="n">normalMap</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Loader</span><span class="p">.</span><span class="n">GetAsset</span><span class="o">&lt;</span><span class="n">Texture2D</span><span class="o">&gt;</span><span class="p">(</span><span class="s">&quot;Grass_Normal&quot;</span><span class="p">),</span>
-<span class="w">        </span><span class="n">roughnessTexture</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Loader</span><span class="p">.</span><span class="n">GetAsset</span><span class="o">&lt;</span><span class="n">Texture2D</span><span class="o">&gt;</span><span class="p">(</span><span class="s">&quot;Grass_Roughness&quot;</span><span class="p">),</span>
+<span class="w">        </span><span class="n">albedoTexture</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Assets</span><span class="p">.</span><span class="n">GetAsset</span><span class="o">&lt;</span><span class="n">Texture2D</span><span class="o">&gt;</span><span class="p">(</span><span class="s">&quot;Grass_Color&quot;</span><span class="p">),</span>
+<span class="w">        </span><span class="n">normalMap</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Assets</span><span class="p">.</span><span class="n">GetAsset</span><span class="o">&lt;</span><span class="n">Texture2D</span><span class="o">&gt;</span><span class="p">(</span><span class="s">&quot;Grass_Normal&quot;</span><span class="p">),</span>
+<span class="w">        </span><span class="n">roughnessTexture</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Assets</span><span class="p">.</span><span class="n">GetAsset</span><span class="o">&lt;</span><span class="n">Texture2D</span><span class="o">&gt;</span><span class="p">(</span><span class="s">&quot;Grass_Roughness&quot;</span><span class="p">),</span>
 <span class="w">        </span><span class="n">albedoColor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Color</span><span class="p">.</span><span class="n">white</span><span class="p">,</span>
 <span class="w">        </span><span class="n">roughnessFloor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.3f</span><span class="p">,</span>
 <span class="w">        </span><span class="n">metalness</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0f</span><span class="p">,</span>
@@ -1374,9 +1374,9 @@
 <span class="w">    </span><span class="c1">// Sand</span>
 <span class="w">    </span><span class="k">new</span><span class="w"> </span><span class="n">TerrainMaterialConfig</span>
 <span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="n">albedoTexture</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Loader</span><span class="p">.</span><span class="n">GetAsset</span><span class="o">&lt;</span><span class="n">Texture2D</span><span class="o">&gt;</span><span class="p">(</span><span class="s">&quot;Sand_Color&quot;</span><span class="p">),</span>
-<span class="w">        </span><span class="n">normalMap</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Loader</span><span class="p">.</span><span class="n">GetAsset</span><span class="o">&lt;</span><span class="n">Texture2D</span><span class="o">&gt;</span><span class="p">(</span><span class="s">&quot;Sand_Normal&quot;</span><span class="p">),</span>
-<span class="w">        </span><span class="n">roughnessTexture</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Loader</span><span class="p">.</span><span class="n">GetAsset</span><span class="o">&lt;</span><span class="n">Texture2D</span><span class="o">&gt;</span><span class="p">(</span><span class="s">&quot;Sand_Roughness&quot;</span><span class="p">),</span>
+<span class="w">        </span><span class="n">albedoTexture</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Assets</span><span class="p">.</span><span class="n">GetAsset</span><span class="o">&lt;</span><span class="n">Texture2D</span><span class="o">&gt;</span><span class="p">(</span><span class="s">&quot;Sand_Color&quot;</span><span class="p">),</span>
+<span class="w">        </span><span class="n">normalMap</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Assets</span><span class="p">.</span><span class="n">GetAsset</span><span class="o">&lt;</span><span class="n">Texture2D</span><span class="o">&gt;</span><span class="p">(</span><span class="s">&quot;Sand_Normal&quot;</span><span class="p">),</span>
+<span class="w">        </span><span class="n">roughnessTexture</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Assets</span><span class="p">.</span><span class="n">GetAsset</span><span class="o">&lt;</span><span class="n">Texture2D</span><span class="o">&gt;</span><span class="p">(</span><span class="s">&quot;Sand_Roughness&quot;</span><span class="p">),</span>
 <span class="w">        </span><span class="n">albedoColor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Color</span><span class="p">.</span><span class="n">white</span><span class="p">,</span>
 <span class="w">        </span><span class="n">roughnessFloor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.3f</span><span class="p">,</span>
 <span class="w">        </span><span class="n">metalness</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0f</span><span class="p">,</span>
@@ -1386,7 +1386,7 @@
 
 <span class="n">request</span><span class="p">.</span><span class="n">Materials</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">materials</span><span class="p">;</span>
 </code></pre></div>
-<p>This uses textures loaded through an <code>AssetLoader</code> rather than copying from an existing planet. See the <a href="../planet-material-utility-reference/">PlanetMaterialUtility Reference</a> for the donor-based alternative.</p>
+<p>This uses textures loaded through an <code>AssetCollection</code> rather than copying from an existing planet. See the <a href="../planet-material-utility-reference/">PlanetMaterialUtility Reference</a> for the donor-based alternative.</p>
 
 
 

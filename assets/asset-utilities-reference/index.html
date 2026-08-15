@@ -11,7 +11,7 @@
       
       
       
-        <link rel="prev" href="../asset-loader-reference/">
+        <link rel="prev" href="../asset-collection-reference/">
       
       
       
@@ -950,14 +950,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../asset-loader-reference/" class="md-nav__link">
+      <a href="../asset-collection-reference/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    AssetLoader Reference
+    AssetCollection Reference
   
 
     
@@ -1146,21 +1146,20 @@
 <h1 id="assetutilities">AssetUtilities</h1>
 <p><code>AssetUtilities</code> automatically extracts asset names from a class or struct
 containing asset keys, so you don't have to maintain the name list by hand
-when calling <code>AssetLoader</code>.</p>
+when calling <code>AssetCollection.LoadFrom()</code>.</p>
 <p>Namespace:</p>
 <div class="highlight"><pre><span></span><code><span class="k">using</span><span class="w"> </span><span class="nn">StellarModdingAPI.Assets</span><span class="p">;</span>
 </code></pre></div>
 <h2 id="extracting-asset-keys">Extracting Asset Keys</h2>
 <p>Example:</p>
-<div class="highlight"><pre><span></span><code><span class="na">[AssetKeyCollection]</span>
-<span class="k">public</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">AssetKeys</span>
+<div class="highlight"><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">AssetKeys</span>
 <span class="p">{</span>
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">PottedPlant</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;PottedPlant&quot;</span><span class="p">;</span>
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">PottedPlantThumbnail</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;PottedPlantThumbnail&quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="na">[AssetKey]</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">PottedPlant</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;PottedPlant&quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="na">[AssetKey]</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">PottedPlantThumbnail</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;PottedPlantThumbnail&quot;</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 <p>The keys can then be extracted using:</p>
-<div class="highlight"><pre><span></span><code><span class="n">AssetUtilities</span><span class="p">.</span><span class="n">ExtractAssetKeysFrom</span><span class="p">(</span><span class="k">typeof</span><span class="p">(</span><span class="n">AssetKeys</span><span class="p">));</span>
+<div class="highlight"><pre><span></span><code><span class="n">AssetUtilities</span><span class="p">.</span><span class="n">ExtractKeysFrom</span><span class="o">&lt;</span><span class="n">AssetKeys</span><span class="o">&gt;</span><span class="p">();</span>
 </code></pre></div>
 <p>This returns:</p>
 <div class="highlight"><pre><span></span><code><span class="na">[</span>
@@ -1168,24 +1167,24 @@ when calling <code>AssetLoader</code>.</p>
 <span class="na">    &quot;PottedPlantThumbnail&quot;</span>
 <span class="na">]</span>
 </code></pre></div>
+<p>In practice, you rarely need to call this yourself — <code>AssetCollection.LoadFrom&lt;T&gt;()</code>
+calls <code>ExtractKeysFrom&lt;T&gt;()</code> internally, scanning <code>T</code> for <code>[AssetKey]</code>-marked
+members automatically. Calling it directly is only useful if you want the
+key list for something other than <code>LoadFrom&lt;T&gt;()</code>, e.g. logging or validation.</p>
 <h2 id="asset-key-attributes">Asset Key Attributes</h2>
-<p>Individual fields can also be marked using <code>[AssetKey]</code>, instead of marking
-the whole class with <code>[AssetKeyCollection]</code>:</p>
-<div class="highlight"><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">AssetKeys</span>
+<p>Mark any constant string field or property with <code>[AssetKey]</code> to include it:</p>
+<div class="highlight"><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">sealed</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Mod</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">StellarMelonMod</span>
 <span class="p">{</span>
-<span class="w">    </span><span class="na">[AssetKey]</span>
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">PottedPlant</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;PottedPlant&quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="na">[AssetKey]</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">PottedPlant</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;PottedPlant&quot;</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
-<p>Only constant string fields can be used as asset keys.</p>
+<p>Only constant string fields (or <code>const</code>-equivalent members) can be used as asset keys.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>When a class is marked with <code>[AssetKeyCollection]</code>, <strong>every</strong> field on
-it is treated as an asset key, not just the ones you intend. If any
-field on that class isn't a <code>const string</code>, <code>ExtractAssetKeysFrom</code> will
-throw an exception.</p>
-<p>Keep <code>[AssetKeyCollection]</code> classes dedicated to asset keys only, or
-use <code>[AssetKey]</code> on individual fields in a mixed-purpose class instead.</p>
+<p><code>ExtractKeysFrom&lt;T&gt;()</code> only picks up members explicitly marked with
+<code>[AssetKey]</code> — unmarked constants on <code>T</code> are ignored, so it's safe to
+mix asset keys with other constants on the same class (as in the
+<code>Mod</code> example on the <a href="../asset-collection-reference/">AssetCollection Reference</a> page).</p>
 </div>
 
 

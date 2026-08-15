@@ -1115,14 +1115,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../assets/asset-loader-reference/" class="md-nav__link">
+      <a href="../../assets/asset-collection-reference/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    AssetLoader Reference
+    AssetCollection Reference
   
 
     
@@ -1342,8 +1342,8 @@
 <div class="highlight"><pre><span></span><code><span class="n">PartDefinition</span><span class="w"> </span><span class="n">definition</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="p">(</span>
 <span class="w">    </span><span class="n">Name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Potted Plant&quot;</span><span class="p">,</span>
 <span class="w">    </span><span class="n">Description</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;A decorative plant&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="n">Prefab</span><span class="p">:</span><span class="w"> </span><span class="n">Loader</span><span class="p">.</span><span class="n">GetAsset</span><span class="o">&lt;</span><span class="n">GameObject</span><span class="o">&gt;</span><span class="p">(</span><span class="s">&quot;PottedPlant&quot;</span><span class="p">),</span>
-<span class="w">    </span><span class="n">Thumbnail</span><span class="p">:</span><span class="w"> </span><span class="n">Loader</span><span class="p">.</span><span class="n">GetAsset</span><span class="o">&lt;</span><span class="n">Texture2D</span><span class="o">&gt;</span><span class="p">(</span><span class="s">&quot;PottedPlantThumbnail&quot;</span><span class="p">),</span>
+<span class="w">    </span><span class="n">Prefab</span><span class="p">:</span><span class="w"> </span><span class="n">Assets</span><span class="p">.</span><span class="n">GetAsset</span><span class="o">&lt;</span><span class="n">GameObject</span><span class="o">&gt;</span><span class="p">(</span><span class="s">&quot;PottedPlant&quot;</span><span class="p">),</span>
+<span class="w">    </span><span class="n">Thumbnail</span><span class="p">:</span><span class="w"> </span><span class="n">Assets</span><span class="p">.</span><span class="n">GetAsset</span><span class="o">&lt;</span><span class="n">Texture2D</span><span class="o">&gt;</span><span class="p">(</span><span class="s">&quot;PottedPlantThumbnail&quot;</span><span class="p">),</span>
 <span class="w">    </span><span class="n">PhysicalSize</span><span class="p">:</span><span class="w"> </span><span class="n">Vector3</span><span class="p">.</span><span class="n">one</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">0.25f</span><span class="p">,</span>
 <span class="w">    </span><span class="n">Mass</span><span class="p">:</span><span class="w"> </span><span class="mf">1f</span><span class="p">,</span>
 <span class="w">    </span><span class="n">LogicalSize</span><span class="p">:</span><span class="w"> </span><span class="n">Vector3</span><span class="p">.</span><span class="n">one</span><span class="p">,</span>
@@ -1371,9 +1371,9 @@
 <div class="highlight"><pre><span></span><code><span class="n">GameObject</span><span class="w"> </span><span class="n">Prefab</span>
 </code></pre></div>
 <p>The Unity <code>GameObject</code> used as the visual representation of the part when placed in the world. It should only contain a <code>MeshRenderer</code>, its materials, and a <code>MeshFilter</code>.</p>
-<p>It can be loaded from an AssetBundle using <code>AssetLoader</code>.</p>
+<p>It can be loaded from an AssetBundle using <code>AssetCollection</code>.</p>
 <p>Example:</p>
-<div class="highlight"><pre><span></span><code><span class="n">Prefab</span><span class="p">:</span><span class="w"> </span><span class="n">Loader</span><span class="p">.</span><span class="n">GetAsset</span><span class="o">&lt;</span><span class="n">GameObject</span><span class="o">&gt;</span><span class="p">(</span><span class="s">&quot;PottedPlant&quot;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">Prefab</span><span class="p">:</span><span class="w"> </span><span class="n">Assets</span><span class="p">.</span><span class="n">GetAsset</span><span class="o">&lt;</span><span class="n">GameObject</span><span class="o">&gt;</span><span class="p">(</span><span class="s">&quot;PottedPlant&quot;</span><span class="p">)</span>
 </code></pre></div>
 <hr />
 <h3 id="thumbnail">Thumbnail</h3>
@@ -1382,7 +1382,7 @@
 <p>The image displayed for the part in the build menu.</p>
 <p>This value is optional. If <code>null</code>, no thumbnail will be displayed.</p>
 <p>Example:</p>
-<div class="highlight"><pre><span></span><code><span class="n">Thumbnail</span><span class="p">:</span><span class="w"> </span><span class="n">Loader</span><span class="p">.</span><span class="n">GetAsset</span><span class="o">&lt;</span><span class="n">Texture2D</span><span class="o">&gt;</span><span class="p">(</span><span class="s">&quot;PottedPlantThumbnail&quot;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">Thumbnail</span><span class="p">:</span><span class="w"> </span><span class="n">Assets</span><span class="p">.</span><span class="n">GetAsset</span><span class="o">&lt;</span><span class="n">Texture2D</span><span class="o">&gt;</span><span class="p">(</span><span class="s">&quot;PottedPlantThumbnail&quot;</span><span class="p">)</span>
 </code></pre></div>
 <hr />
 <h3 id="physicalsize">PhysicalSize</h3>

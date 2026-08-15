@@ -1043,14 +1043,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../assets/asset-loader-reference/" class="md-nav__link">
+      <a href="../../assets/asset-collection-reference/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    AssetLoader Reference
+    AssetCollection Reference
   
 
     
@@ -1238,14 +1238,14 @@
 </div>
 <h2 id="custom-materials">Custom Materials</h2>
 <p>By default, a cloned planet keeps the source planet's own textures. To use different materials, assign a <code>TerrainMaterialConfig[]</code> to <code>PlanetSpawnRequest.Materials</code>. There are two ways to build one:</p>
-<p><strong>Construct materials yourself</strong>, supplying your own textures (for example, loaded through an <code>AssetLoader</code>):</p>
+<p><strong>Construct materials yourself</strong>, supplying your own textures (for example, loaded through an <code>AssetCollection</code>):</p>
 <div class="highlight"><pre><span></span><code><span class="kt">var</span><span class="w"> </span><span class="n">materials</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="p">[]</span>
 <span class="p">{</span>
 <span class="w">    </span><span class="k">new</span><span class="w"> </span><span class="n">TerrainMaterialConfig</span>
 <span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="n">albedoTexture</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Loader</span><span class="p">.</span><span class="n">GetAsset</span><span class="o">&lt;</span><span class="n">Texture2D</span><span class="o">&gt;</span><span class="p">(</span><span class="s">&quot;Grass_Color&quot;</span><span class="p">),</span>
-<span class="w">        </span><span class="n">normalMap</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Loader</span><span class="p">.</span><span class="n">GetAsset</span><span class="o">&lt;</span><span class="n">Texture2D</span><span class="o">&gt;</span><span class="p">(</span><span class="s">&quot;Grass_Normal&quot;</span><span class="p">),</span>
-<span class="w">        </span><span class="n">roughnessTexture</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Loader</span><span class="p">.</span><span class="n">GetAsset</span><span class="o">&lt;</span><span class="n">Texture2D</span><span class="o">&gt;</span><span class="p">(</span><span class="s">&quot;Grass_Roughness&quot;</span><span class="p">),</span>
+<span class="w">        </span><span class="n">albedoTexture</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Assets</span><span class="p">.</span><span class="n">GetAsset</span><span class="o">&lt;</span><span class="n">Texture2D</span><span class="o">&gt;</span><span class="p">(</span><span class="s">&quot;Grass_Color&quot;</span><span class="p">),</span>
+<span class="w">        </span><span class="n">normalMap</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Assets</span><span class="p">.</span><span class="n">GetAsset</span><span class="o">&lt;</span><span class="n">Texture2D</span><span class="o">&gt;</span><span class="p">(</span><span class="s">&quot;Grass_Normal&quot;</span><span class="p">),</span>
+<span class="w">        </span><span class="n">roughnessTexture</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Assets</span><span class="p">.</span><span class="n">GetAsset</span><span class="o">&lt;</span><span class="n">Texture2D</span><span class="o">&gt;</span><span class="p">(</span><span class="s">&quot;Grass_Roughness&quot;</span><span class="p">),</span>
 <span class="w">        </span><span class="n">albedoColor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Color</span><span class="p">.</span><span class="n">white</span><span class="p">,</span>
 <span class="w">        </span><span class="n">roughnessFloor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.3f</span><span class="p">,</span>
 <span class="w">        </span><span class="n">metalness</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0f</span><span class="p">,</span>

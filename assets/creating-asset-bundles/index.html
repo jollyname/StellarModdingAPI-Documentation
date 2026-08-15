@@ -1043,14 +1043,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../asset-loader-reference/" class="md-nav__link">
+      <a href="../asset-collection-reference/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    AssetLoader Reference
+    AssetCollection Reference
   
 
     
@@ -1190,7 +1190,7 @@
 
 
 <h1 id="creating-assetbundles">Creating AssetBundles</h1>
-<p>Before assets can be loaded by <code>AssetLoader</code>, they need to be packaged into an AssetBundle inside the Unity Editor.</p>
+<p>Before assets can be loaded by <code>AssetCollection</code>, they need to be packaged into an AssetBundle inside the Unity Editor.</p>
 <h2 id="1-assign-an-assetbundle-name">1. Assign an AssetBundle Name</h2>
 <ol>
 <li>Select the asset in the Project window (e.g. a prefab, texture, or material).</li>
@@ -1200,12 +1200,12 @@
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>Assets that should be loaded together can share the same bundle name.
-<code>AssetLoader</code> reads every embedded AssetBundle it finds, so you don't
+<code>AssetCollection</code> reads every embedded AssetBundle it finds, so you don't
 need a separate bundle per asset. Feel free to manage bundles however
 you want.</p>
 </div>
 <h2 id="2-set-the-assets-name">2. Set the Asset's Name</h2>
-<p><code>AssetLoader</code> matches assets by their <code>Object.name</code>, which is normally just
+<p><code>AssetCollection</code> matches assets by their <code>Object.name</code>, which is normally just
 the file name of the asset in the Project window. Rename the asset file to
 match the key you plan to use, for example:</p>
 <ul>

@@ -1043,14 +1043,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../assets/asset-loader-reference/" class="md-nav__link">
+      <a href="../../assets/asset-collection-reference/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    AssetLoader Reference
+    AssetCollection Reference
   
 
     
@@ -1201,23 +1201,24 @@
 <p>Parts are created using a <code>PartDefinition</code> and registered through the API. The API automatically adds registered parts to StellarDrive's build menu.</p>
 <h2 id="loading-assets">Loading Assets</h2>
 <p>Before creating a part, you need to load the assets used by the part.</p>
-<p>The StellarModdingAPI provides <code>AssetLoader</code> for loading assets from Unity AssetBundles.</p>
-<p>Example:</p>
-<div class="highlight"><pre><span></span><code><span class="n">Loader</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">AssetLoader</span><span class="p">(</span>
-<span class="w">    </span><span class="n">MelonAssembly</span><span class="p">.</span><span class="n">Assembly</span><span class="p">,</span>
-<span class="w">    </span><span class="k">new</span><span class="p">[]</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="s">&quot;PottedPlant&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;PottedPlantThumbnail&quot;</span>
-<span class="w">    </span><span class="p">},</span>
-<span class="w">    </span><span class="n">LoggerInstance</span>
-<span class="p">);</span>
+<p>The StellarModdingAPI provides <code>AssetCollection</code> for loading assets from Unity AssetBundles. Mark each asset name as a constant with <code>[AssetKey]</code>, then load them all at once in <code>LoadAssets()</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="n">AssetCollection</span><span class="o">?</span><span class="w"> </span><span class="n">Assets</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">get</span><span class="p">;</span><span class="w"> </span><span class="k">private</span><span class="w"> </span><span class="k">set</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+
+<span class="na">[AssetKey]</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">PottedPlantKey</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;PottedPlant&quot;</span><span class="p">;</span>
+<span class="na">[AssetKey]</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">PottedPlantThumbnailKey</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;PottedPlantThumbnail&quot;</span><span class="p">;</span>
+
+<span class="k">public</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">LoadAssets</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">Assets</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">AssetCollection</span><span class="p">.</span><span class="n">LoadFrom</span><span class="o">&lt;</span><span class="n">Mod</span><span class="o">&gt;</span><span class="p">(</span><span class="n">logger</span><span class="p">:</span><span class="w"> </span><span class="n">LoggerInstance</span><span class="p">);</span>
+<span class="p">}</span>
 </code></pre></div>
-<p>The asset names passed to <code>AssetLoader</code> are the names of the assets that your mod will use later.</p>
+<p>The names assigned to these <code>[AssetKey]</code> constants are the names of the assets that your mod will use later.</p>
 <p>In this example:</p>
 <ul>
 <li><code>PottedPlant</code> is the part's model prefab.</li>
 <li><code>PottedPlantThumbnail</code> is the image displayed in the build menu.</li>
 </ul>
+<p>For more detail on loading assets, see the <a href="../../assets/asset-collection-reference/">AssetCollection Reference</a>.</p>
 <h2 id="creating-a-part_1">Creating a Part</h2>
 <p>Parts are created using <code>PartDefinition</code>.</p>
 <p>A <code>PartDefinition</code> contains all the information required to create a part.</p>
@@ -1225,8 +1226,8 @@
 <div class="highlight"><pre><span></span><code><span class="n">PartDefinition</span><span class="w"> </span><span class="n">PottedPlantDefinition</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="p">(</span>
 <span class="w">    </span><span class="n">Name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Potted Plant&quot;</span><span class="p">,</span>
 <span class="w">    </span><span class="n">Description</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Potted plant!!!!!!!&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="n">Prefab</span><span class="p">:</span><span class="w"> </span><span class="n">Loader</span><span class="p">.</span><span class="n">GetAsset</span><span class="o">&lt;</span><span class="n">GameObject</span><span class="o">&gt;</span><span class="p">(</span><span class="s">&quot;PottedPlant&quot;</span><span class="p">),</span>
-<span class="w">    </span><span class="n">Thumbnail</span><span class="p">:</span><span class="w"> </span><span class="n">Loader</span><span class="p">.</span><span class="n">GetAsset</span><span class="o">&lt;</span><span class="n">Texture2D</span><span class="o">&gt;</span><span class="p">(</span><span class="s">&quot;PottedPlantThumbnail&quot;</span><span class="p">),</span>
+<span class="w">    </span><span class="n">Prefab</span><span class="p">:</span><span class="w"> </span><span class="n">Assets</span><span class="p">.</span><span class="n">GetAsset</span><span class="o">&lt;</span><span class="n">GameObject</span><span class="o">&gt;</span><span class="p">(</span><span class="n">PottedPlantKey</span><span class="p">),</span>
+<span class="w">    </span><span class="n">Thumbnail</span><span class="p">:</span><span class="w"> </span><span class="n">Assets</span><span class="p">.</span><span class="n">GetAsset</span><span class="o">&lt;</span><span class="n">Texture2D</span><span class="o">&gt;</span><span class="p">(</span><span class="n">PottedPlantThumbnailKey</span><span class="p">),</span>
 <span class="w">    </span><span class="n">PhysicalSize</span><span class="p">:</span><span class="w"> </span><span class="n">Vector3</span><span class="p">.</span><span class="n">one</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">0.25f</span><span class="p">,</span>
 <span class="w">    </span><span class="n">Mass</span><span class="p">:</span><span class="w"> </span><span class="mf">1f</span><span class="p">,</span>
 <span class="w">    </span><span class="n">LogicalSize</span><span class="p">:</span><span class="w"> </span><span class="n">Vector3</span><span class="p">.</span><span class="n">one</span><span class="p">,</span>
@@ -1267,20 +1268,16 @@
 <span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">DownloadLink</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">null</span><span class="p">;</span>
 <span class="w">    </span><span class="p">}</span>
 
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">SDAPITest</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">StellarMelonMod</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">sealed</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">SDAPITest</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">StellarMelonMod</span>
 <span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="n">AssetLoader</span><span class="w"> </span><span class="n">Loader</span><span class="p">;</span>
+<span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="n">AssetCollection</span><span class="o">?</span><span class="w"> </span><span class="n">Assets</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">get</span><span class="p">;</span><span class="w"> </span><span class="k">private</span><span class="w"> </span><span class="k">set</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
 
-<span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">OnLateInitializeMelon</span><span class="p">()</span>
+<span class="w">        </span><span class="na">[AssetKey]</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">PottedPlantKey</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;PottedPlant&quot;</span><span class="p">;</span>
+<span class="w">        </span><span class="na">[AssetKey]</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">PottedPlantThumbnailKey</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;PottedPlantThumbnail&quot;</span><span class="p">;</span>
+
+<span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">LoadAssets</span><span class="p">()</span>
 <span class="w">        </span><span class="p">{</span>
-<span class="w">            </span><span class="n">Loader</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">AssetLoader</span><span class="p">(</span>
-<span class="w">                </span><span class="n">MelonAssembly</span><span class="p">.</span><span class="n">Assembly</span><span class="p">,</span>
-<span class="w">                </span><span class="k">new</span><span class="p">[]</span>
-<span class="w">                </span><span class="p">{</span>
-<span class="w">                    </span><span class="s">&quot;PottedPlant&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;PottedPlantThumbnail&quot;</span>
-<span class="w">                </span><span class="p">},</span>
-<span class="w">                </span><span class="n">LoggerInstance</span>
-<span class="w">            </span><span class="p">);</span>
+<span class="w">            </span><span class="n">Assets</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">AssetCollection</span><span class="p">.</span><span class="n">LoadFrom</span><span class="o">&lt;</span><span class="n">SDAPITest</span><span class="o">&gt;</span><span class="p">(</span><span class="n">logger</span><span class="p">:</span><span class="w"> </span><span class="n">LoggerInstance</span><span class="p">);</span>
 <span class="w">        </span><span class="p">}</span>
 
 <span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">OnSceneWasLoaded</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">buildIndex</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">sceneName</span><span class="p">)</span>
@@ -1290,8 +1287,8 @@
 <span class="w">            </span><span class="n">PartDefinition</span><span class="w"> </span><span class="n">PottedPlantDefinition</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="p">(</span>
 <span class="w">                </span><span class="n">Name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Potted Plant&quot;</span><span class="p">,</span>
 <span class="w">                </span><span class="n">Description</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Potted plant!!!!!!!&quot;</span><span class="p">,</span>
-<span class="w">                </span><span class="n">Prefab</span><span class="p">:</span><span class="w"> </span><span class="n">Loader</span><span class="p">.</span><span class="n">GetAsset</span><span class="o">&lt;</span><span class="n">GameObject</span><span class="o">&gt;</span><span class="p">(</span><span class="s">&quot;PottedPlant&quot;</span><span class="p">),</span>
-<span class="w">                </span><span class="n">Thumbnail</span><span class="p">:</span><span class="w"> </span><span class="n">Loader</span><span class="p">.</span><span class="n">GetAsset</span><span class="o">&lt;</span><span class="n">Texture2D</span><span class="o">&gt;</span><span class="p">(</span><span class="s">&quot;PottedPlantThumbnail&quot;</span><span class="p">),</span>
+<span class="w">                </span><span class="n">Prefab</span><span class="p">:</span><span class="w"> </span><span class="n">Assets</span><span class="p">.</span><span class="n">GetAsset</span><span class="o">&lt;</span><span class="n">GameObject</span><span class="o">&gt;</span><span class="p">(</span><span class="n">PottedPlantKey</span><span class="p">),</span>
+<span class="w">                </span><span class="n">Thumbnail</span><span class="p">:</span><span class="w"> </span><span class="n">Assets</span><span class="p">.</span><span class="n">GetAsset</span><span class="o">&lt;</span><span class="n">Texture2D</span><span class="o">&gt;</span><span class="p">(</span><span class="n">PottedPlantThumbnailKey</span><span class="p">),</span>
 <span class="w">                </span><span class="n">PhysicalSize</span><span class="p">:</span><span class="w"> </span><span class="n">Vector3</span><span class="p">.</span><span class="n">one</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">0.25f</span><span class="p">,</span>
 <span class="w">                </span><span class="n">Mass</span><span class="p">:</span><span class="w"> </span><span class="mf">1f</span><span class="p">,</span>
 <span class="w">                </span><span class="n">LogicalSize</span><span class="p">:</span><span class="w"> </span><span class="n">Vector3</span><span class="p">.</span><span class="n">one</span><span class="p">,</span>
