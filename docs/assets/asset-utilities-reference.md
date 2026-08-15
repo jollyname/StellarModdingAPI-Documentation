@@ -2,7 +2,7 @@
 
 `AssetUtilities` automatically extracts asset names from a class or struct
 containing asset keys, so you don't have to maintain the name list by hand
-when calling `AssetLoader`.
+when calling `AssetCollection.LoadFrom()`.
 
 Namespace:
 
@@ -15,18 +15,17 @@ using StellarModdingAPI.Assets;
 Example:
 
 ```csharp
-[AssetKeyCollection]
 public static class AssetKeys
 {
-    public const string PottedPlant = "PottedPlant";
-    public const string PottedPlantThumbnail = "PottedPlantThumbnail";
+    [AssetKey] public const string PottedPlant = "PottedPlant";
+    [AssetKey] public const string PottedPlantThumbnail = "PottedPlantThumbnail";
 }
 ```
 
 The keys can then be extracted using:
 
 ```csharp
-AssetUtilities.ExtractAssetKeysFrom(typeof(AssetKeys));
+AssetUtilities.ExtractKeysFrom<AssetKeys>();
 ```
 
 This returns:
@@ -38,27 +37,27 @@ This returns:
 ]
 ```
 
+In practice, you rarely need to call this yourself — `AssetCollection.LoadFrom<T>()`
+calls `ExtractKeysFrom<T>()` internally, scanning `T` for `[AssetKey]`-marked
+members automatically. Calling it directly is only useful if you want the
+key list for something other than `LoadFrom<T>()`, e.g. logging or validation.
+
 ## Asset Key Attributes
 
-Individual fields can also be marked using `[AssetKey]`, instead of marking
-the whole class with `[AssetKeyCollection]`:
+Mark any constant string field or property with `[AssetKey]` to include it:
 
 ```csharp
-public static class AssetKeys
+public sealed class Mod : StellarMelonMod
 {
-    [AssetKey]
-    public const string PottedPlant = "PottedPlant";
+    [AssetKey] public const string PottedPlant = "PottedPlant";
 }
 ```
 
-Only constant string fields can be used as asset keys.
+Only constant string fields (or `const`-equivalent members) can be used as asset keys.
 
 !!! warning
 
-    When a class is marked with `[AssetKeyCollection]`, **every** field on
-    it is treated as an asset key, not just the ones you intend. If any
-    field on that class isn't a `const string`, `ExtractAssetKeysFrom` will
-    throw an exception.
-
-    Keep `[AssetKeyCollection]` classes dedicated to asset keys only, or
-    use `[AssetKey]` on individual fields in a mixed-purpose class instead.
+    `ExtractKeysFrom<T>()` only picks up members explicitly marked with
+    `[AssetKey]` — unmarked constants on `T` are ignored, so it's safe to
+    mix asset keys with other constants on the same class (as in the
+    `Mod` example on the [AssetCollection Reference](asset-collection-reference.md) page).

@@ -1,6 +1,6 @@
 # Embedding Assets in Your Mod
 
-`AssetLoader` expects each AssetBundle to be included in your mod's assembly
+`AssetCollection` expects each AssetBundle to be included in your mod's assembly
 as an **Embedded Resource**. This packages the bundle directly into your
 compiled `.dll`, so no extra files need to be shipped alongside it.
 
@@ -66,5 +66,5 @@ The full file will look something like this:
 
 ## Next Step
 
-Continue to the [AssetLoader Reference](asset-loader-reference.md) to load
+Continue to the [AssetCollection Reference](asset-collection-reference.md) to load
 the assets from the embedded bundle.

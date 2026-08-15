@@ -69,8 +69,8 @@ PartDefinition PottedPlantDefinition = new(
     Name: "Potted Plant",
     Description: "A decorative plant",
 
-    Prefab: Loader.GetAsset<GameObject>("PottedPlant"),
-    Thumbnail: Loader.GetAsset<Texture2D>("PottedPlantThumbnail"),
+    Prefab: Assets.GetAsset<GameObject>(PottedPlantKey),
+    Thumbnail: Assets.GetAsset<Texture2D>(PottedPlantThumbnailKey),
 
     PhysicalSize: Vector3.one * 0.25f,
     Mass: 1f,

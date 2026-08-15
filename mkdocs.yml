@@ -41,11 +41,19 @@ nav:
       - ItemCost Reference: parts/item-cost-reference.md
       - Item IDs: parts/item-ids-reference.md
 
+  - Planets:
+      - Overview: planets/index.md
+      - Creating a Planet: planets/creating-a-planet.md
+      - PlanetSpawnRequest Reference: planets/planet-spawn-request-reference.md
+      - PlanetMaterialUtility Reference: planets/planet-material-utility-reference.md
+      - PlanetMaterialConfig reference: planets/terrain-material-config-reference.md
+      - Terrain Styles Reference: planets/terrain-styles-reference.md
+
   - Assets:
       - Overview: assets/index.md
       - Creating AssetBundles: assets/creating-asset-bundles.md
       - Embedding Assets in Your Mod: assets/embedding-assets.md
-      - AssetLoader Reference: assets/asset-loader-reference.md
+      - AssetCollection Reference: assets/asset-collection-reference.md
       - AssetUtilities Reference: assets/asset-utilities-reference.md
 
 markdown_extensions:

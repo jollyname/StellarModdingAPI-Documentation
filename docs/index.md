@@ -5,8 +5,8 @@ Welcome to the documentation for the StellarDrive Modding API.
 The StellarDrive Modding API allows developers to create custom content for
 StellarDrive through external mods.
 
-Currently, the API provides tools for creating custom parts and working with
-custom assets through Unity AssetBundles.
+Currently, the API provides tools for creating custom parts, custom planets,
+and working with custom assets through Unity AssetBundles.
 
 ## Features
 
@@ -14,6 +14,7 @@ Current features:
 
 - Create custom parts
 - Define custom part properties and building costs
+- Clone and customize custom planets, including terrain, materials, and position
 - Load custom assets from Unity AssetBundles
 - Register custom content through the API
 
@@ -52,7 +53,18 @@ Learn how to create and register custom parts:
 Learn how to load and use custom assets:
 
 - Unity AssetBundles
-- AssetLoader
+- AssetCollection
 - Supported asset types
 
 [Assets](assets/index.md)
+
+### Planets
+
+Learn how to create custom planets:
+
+- Cloning an existing planet
+- Terrain and material customization
+- Terrain style presets
+- Position and network registration
+
+[Planets](planets/index.md)

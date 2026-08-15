@@ -14,8 +14,8 @@ Example:
 PartDefinition definition = new(
     Name: "Potted Plant",
     Description: "A decorative plant",
-    Prefab: Loader.GetAsset<GameObject>("PottedPlant"),
-    Thumbnail: Loader.GetAsset<Texture2D>("PottedPlantThumbnail"),
+    Prefab: Assets.GetAsset<GameObject>("PottedPlant"),
+    Thumbnail: Assets.GetAsset<Texture2D>("PottedPlantThumbnail"),
     PhysicalSize: Vector3.one * 0.25f,
     Mass: 1f,
     LogicalSize: Vector3.one,
@@ -65,12 +65,12 @@ GameObject Prefab
 
 The Unity `GameObject` used as the visual representation of the part when placed in the world. It should only contain a `MeshRenderer`, its materials, and a `MeshFilter`.
 
-It can be loaded from an AssetBundle using `AssetLoader`.
+It can be loaded from an AssetBundle using `AssetCollection`.
 
 Example:
 
 ```csharp
-Prefab: Loader.GetAsset<GameObject>("PottedPlant")
+Prefab: Assets.GetAsset<GameObject>("PottedPlant")
 ```
 
 ---
@@ -88,7 +88,7 @@ This value is optional. If `null`, no thumbnail will be displayed.
 Example:
 
 ```csharp
-Thumbnail: Loader.GetAsset<Texture2D>("PottedPlantThumbnail")
+Thumbnail: Assets.GetAsset<Texture2D>("PottedPlantThumbnail")
 ```
 
 ---

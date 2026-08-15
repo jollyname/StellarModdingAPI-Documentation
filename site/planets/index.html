@@ -11,26 +11,28 @@
       
       
       
+        <link rel="prev" href="../parts/item-ids-reference/">
       
-        <link rel="next" href="getting-started/">
+      
+        <link rel="next" href="creating-a-planet/">
       
       
         
       
       
-      <link rel="icon" href="assets/images/favicon.png">
+      <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
-        <title>StellarModdingAPI Documentation</title>
+        <title>Overview - StellarModdingAPI Documentation</title>
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.ec1eaa64.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
       
         
-        <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -49,7 +51,7 @@
       
     
     
-    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -74,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#stellardrive-modding-api" class="md-skip">
+        <a href="#planets" class="md-skip">
           Skip to content
         </a>
       
@@ -90,7 +92,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="." title="StellarModdingAPI Documentation" class="md-header__button md-logo" aria-label="StellarModdingAPI Documentation" data-md-component="logo">
+    <a href=".." title="StellarModdingAPI Documentation" class="md-header__button md-logo" aria-label="StellarModdingAPI Documentation" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -110,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Home
+              Overview
             
           </span>
         </div>
@@ -228,7 +230,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="." title="StellarModdingAPI Documentation" class="md-nav__button md-logo" aria-label="StellarModdingAPI Documentation" data-md-component="logo">
+    <a href=".." title="StellarModdingAPI Documentation" class="md-nav__button md-logo" aria-label="StellarModdingAPI Documentation" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -255,37 +257,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Home
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="." class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
         
   
   
@@ -301,98 +276,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#features" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Features
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#getting-started" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Getting Started
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#documentation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Documentation
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Documentation">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#parts" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Parts
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#assets" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Assets
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#planets" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Planets
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -426,7 +309,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="getting-started/" class="md-nav__link ">
+            <a href="../getting-started/" class="md-nav__link ">
               
   
   
@@ -470,7 +353,7 @@
   
   
     <li class="md-nav__item">
-      <a href="getting-started/installing-melonloader/" class="md-nav__link">
+      <a href="../getting-started/installing-melonloader/" class="md-nav__link">
         
   
   
@@ -498,7 +381,7 @@
   
   
     <li class="md-nav__item">
-      <a href="getting-started/creating-your-first-mod/" class="md-nav__link">
+      <a href="../getting-started/creating-your-first-mod/" class="md-nav__link">
         
   
   
@@ -559,7 +442,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="parts/" class="md-nav__link ">
+            <a href="../parts/" class="md-nav__link ">
               
   
   
@@ -603,7 +486,7 @@
   
   
     <li class="md-nav__item">
-      <a href="parts/creating-a-part/" class="md-nav__link">
+      <a href="../parts/creating-a-part/" class="md-nav__link">
         
   
   
@@ -631,7 +514,7 @@
   
   
     <li class="md-nav__item">
-      <a href="parts/part-definition-reference/" class="md-nav__link">
+      <a href="../parts/part-definition-reference/" class="md-nav__link">
         
   
   
@@ -659,7 +542,7 @@
   
   
     <li class="md-nav__item">
-      <a href="parts/item-cost-reference/" class="md-nav__link">
+      <a href="../parts/item-cost-reference/" class="md-nav__link">
         
   
   
@@ -687,7 +570,7 @@
   
   
     <li class="md-nav__item">
-      <a href="parts/item-ids-reference/" class="md-nav__link">
+      <a href="../parts/item-ids-reference/" class="md-nav__link">
         
   
   
@@ -719,6 +602,8 @@
       
   
   
+    
+  
   
   
     
@@ -742,15 +627,15 @@
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="planets/" class="md-nav__link ">
+            <a href="./" class="md-nav__link md-nav__link--active">
               
   
   
@@ -768,13 +653,13 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="0">
+              <label class="md-nav__link md-nav__link--active" for="__nav_4" id="__nav_4_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             
@@ -794,7 +679,7 @@
   
   
     <li class="md-nav__item">
-      <a href="planets/creating-a-planet/" class="md-nav__link">
+      <a href="creating-a-planet/" class="md-nav__link">
         
   
   
@@ -822,7 +707,7 @@
   
   
     <li class="md-nav__item">
-      <a href="planets/planet-spawn-request-reference/" class="md-nav__link">
+      <a href="planet-spawn-request-reference/" class="md-nav__link">
         
   
   
@@ -850,7 +735,7 @@
   
   
     <li class="md-nav__item">
-      <a href="planets/planet-material-utility-reference/" class="md-nav__link">
+      <a href="planet-material-utility-reference/" class="md-nav__link">
         
   
   
@@ -878,7 +763,7 @@
   
   
     <li class="md-nav__item">
-      <a href="planets/terrain-material-config-reference/" class="md-nav__link">
+      <a href="terrain-material-config-reference/" class="md-nav__link">
         
   
   
@@ -906,7 +791,7 @@
   
   
     <li class="md-nav__item">
-      <a href="planets/terrain-styles-reference/" class="md-nav__link">
+      <a href="terrain-styles-reference/" class="md-nav__link">
         
   
   
@@ -967,7 +852,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="assets/" class="md-nav__link ">
+            <a href="../assets/" class="md-nav__link ">
               
   
   
@@ -1011,7 +896,7 @@
   
   
     <li class="md-nav__item">
-      <a href="assets/creating-asset-bundles/" class="md-nav__link">
+      <a href="../assets/creating-asset-bundles/" class="md-nav__link">
         
   
   
@@ -1039,7 +924,7 @@
   
   
     <li class="md-nav__item">
-      <a href="assets/embedding-assets/" class="md-nav__link">
+      <a href="../assets/embedding-assets/" class="md-nav__link">
         
   
   
@@ -1067,7 +952,7 @@
   
   
     <li class="md-nav__item">
-      <a href="assets/asset-collection-reference/" class="md-nav__link">
+      <a href="../assets/asset-collection-reference/" class="md-nav__link">
         
   
   
@@ -1095,7 +980,7 @@
   
   
     <li class="md-nav__item">
-      <a href="assets/asset-utilities-reference/" class="md-nav__link">
+      <a href="../assets/asset-utilities-reference/" class="md-nav__link">
         
   
   
@@ -1150,10 +1035,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#features" class="md-nav__link">
+  <a href="#creating-planets" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Features
+        Creating Planets
       
     </span>
   </a>
@@ -1161,10 +1046,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#getting-started" class="md-nav__link">
+  <a href="#planet-workflow" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Getting Started
+        Planet Workflow
       
     </span>
   </a>
@@ -1172,52 +1057,24 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#documentation" class="md-nav__link">
+  <a href="#limitations" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Documentation
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Documentation">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#parts" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Parts
+        Limitations
       
     </span>
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#assets" class="md-nav__link">
+      
+        <li class="md-nav__item">
+  <a href="#guides" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Assets
+        Guides
       
     </span>
   </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#planets" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Planets
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -1241,60 +1098,38 @@
   
 
 
-<h1 id="stellardrive-modding-api">StellarDrive Modding API</h1>
-<p>Welcome to the documentation for the StellarDrive Modding API.</p>
-<p>The StellarDrive Modding API allows developers to create custom content for
-StellarDrive through external mods.</p>
-<p>Currently, the API provides tools for creating custom parts, custom planets,
-and working with custom assets through Unity AssetBundles.</p>
-<h2 id="features">Features</h2>
-<p>Current features:</p>
+<h1 id="planets">Planets</h1>
+<p>The StellarModdingAPI allows mods to create custom planets for StellarDrive by cloning an existing planet and customizing its terrain, materials, and position.</p>
+<p>Planets are cloned from an existing in-scene planet, then registered with the game's client and server planet trackers so they behave like any other planet.</p>
+<h2 id="creating-planets">Creating Planets</h2>
+<p>A custom planet is created using a <code>PlanetSpawnRequest</code>.</p>
+<p>A <code>PlanetSpawnRequest</code> contains the information needed to create a planet, including:</p>
 <ul>
-<li>Create custom parts</li>
-<li>Define custom part properties and building costs</li>
-<li>Clone and customize custom planets, including terrain, materials, and position</li>
-<li>Load custom assets from Unity AssetBundles</li>
-<li>Register custom content through the API</li>
+<li>Source planet to clone</li>
+<li>New id, name, and radius</li>
+<li>Position offset from the source planet</li>
+<li>Terrain overrides</li>
+<li>Custom materials</li>
+<li>Ring removal and network registration options</li>
 </ul>
-<p>The API is actively being expanded with more modding capabilities.</p>
-<h2 id="getting-started">Getting Started</h2>
-<p>New to StellarDrive modding?</p>
-<p>Start by setting up your development environment:</p>
-<p><a href="getting-started/">Getting Started</a></p>
-<p>This section covers:</p>
+<p>Once a request is filled out, <code>PlanetFactory.Spawn</code> clones the source planet, applies the requested overrides, and registers it so it appears for players.</p>
+<p>For simpler cases, <code>SimplePlanetFactory.Spawn</code> wraps <code>PlanetFactory</code> with a handful of terrain style presets and sensible defaults, so you don't need to build a <code>PlanetSpawnRequest</code> yourself.</p>
+<h2 id="planet-workflow">Planet Workflow</h2>
+<p>Creating a custom planet usually follows these steps:</p>
+<ol>
+<li>Pick an existing planet to clone as your source</li>
+<li>Build a <code>PlanetSpawnRequest</code> (or use <code>SimplePlanetFactory</code> for common cases)</li>
+<li>Optionally build a custom material palette with <code>PlanetMaterialUtility</code></li>
+<li>Spawn the planet with <code>PlanetFactory.Spawn</code></li>
+</ol>
+<h2 id="limitations">Limitations</h2>
 <ul>
-<li>Installing MelonLoader</li>
-<li>Setting up a mod project</li>
-<li>Creating your first mod</li>
-<li>Building and testing your mod</li>
+<li>No resource control, no support for adding resources to a clone, or stripping the ones it inherited from its source. This will get added later on.</li>
+<li>Position is relative to the source planet, not the star. PositionOffset and distanceFromSource place the clone relative to the source planet's own position. This is expected to move to a distance from star model in a future version.</li>
 </ul>
-<h2 id="documentation">Documentation</h2>
-<h3 id="parts">Parts</h3>
-<p>Learn how to create and register custom parts:</p>
-<ul>
-<li>Part creation</li>
-<li>Part definitions</li>
-<li>Part properties</li>
-<li>Building costs</li>
-</ul>
-<p><a href="parts/">Parts</a></p>
-<h3 id="assets">Assets</h3>
-<p>Learn how to load and use custom assets:</p>
-<ul>
-<li>Unity AssetBundles</li>
-<li>AssetCollection</li>
-<li>Supported asset types</li>
-</ul>
-<p><a href="assets/">Assets</a></p>
-<h3 id="planets">Planets</h3>
-<p>Learn how to create custom planets:</p>
-<ul>
-<li>Cloning an existing planet</li>
-<li>Terrain and material customization</li>
-<li>Terrain style presets</li>
-<li>Position and network registration</li>
-</ul>
-<p><a href="planets/">Planets</a></p>
+<h2 id="guides">Guides</h2>
+<p>Start creating your first custom planet:</p>
+<p><a href="creating-a-planet/">Creating a Planet</a></p>
 
 
 
@@ -1350,10 +1185,10 @@ and working with custom assets through Unity AssetBundles.</p>
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["navigation.top", "navigation.indexes", "search.suggest", "search.highlight", "content.code.copy", "content.code.annotate"], "search": "assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.top", "navigation.indexes", "search.suggest", "search.highlight", "content.code.copy", "content.code.annotate"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="assets/javascripts/bundle.d7400e89.min.js"></script>
+      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
       
     
   </body>

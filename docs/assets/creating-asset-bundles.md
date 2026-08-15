@@ -1,6 +1,6 @@
 # Creating AssetBundles
 
-Before assets can be loaded by `AssetLoader`, they need to be packaged into an AssetBundle inside the Unity Editor.
+Before assets can be loaded by `AssetCollection`, they need to be packaged into an AssetBundle inside the Unity Editor.
 
 ## 1. Assign an AssetBundle Name
 
@@ -11,13 +11,13 @@ Before assets can be loaded by `AssetLoader`, they need to be packaged into an A
 !!! tip
 
     Assets that should be loaded together can share the same bundle name.
-    `AssetLoader` reads every embedded AssetBundle it finds, so you don't
+    `AssetCollection` reads every embedded AssetBundle it finds, so you don't
     need a separate bundle per asset. Feel free to manage bundles however
     you want.
 
 ## 2. Set the Asset's Name
 
-`AssetLoader` matches assets by their `Object.name`, which is normally just
+`AssetCollection` matches assets by their `Object.name`, which is normally just
 the file name of the asset in the Project window. Rename the asset file to
 match the key you plan to use, for example:
 

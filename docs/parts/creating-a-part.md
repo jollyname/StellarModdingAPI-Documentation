@@ -15,27 +15,28 @@ Parts are created using a `PartDefinition` and registered through the API. The A
 
 Before creating a part, you need to load the assets used by the part.
 
-The StellarModdingAPI provides `AssetLoader` for loading assets from Unity AssetBundles.
-
-Example:
+The StellarModdingAPI provides `AssetCollection` for loading assets from Unity AssetBundles. Mark each asset name as a constant with `[AssetKey]`, then load them all at once in `LoadAssets()`:
 
 ```csharp
-Loader = new AssetLoader(
-    MelonAssembly.Assembly,
-    new[]
-    {
-        "PottedPlant", "PottedPlantThumbnail"
-    },
-    LoggerInstance
-);
+public static AssetCollection? Assets { get; private set; }
+
+[AssetKey] public const string PottedPlantKey = "PottedPlant";
+[AssetKey] public const string PottedPlantThumbnailKey = "PottedPlantThumbnail";
+
+public override void LoadAssets()
+{
+    Assets = AssetCollection.LoadFrom<Mod>(logger: LoggerInstance);
+}
 ```
 
-The asset names passed to `AssetLoader` are the names of the assets that your mod will use later.
+The names assigned to these `[AssetKey]` constants are the names of the assets that your mod will use later.
 
 In this example:
 
 * `PottedPlant` is the part's model prefab.
 * `PottedPlantThumbnail` is the image displayed in the build menu.
+
+For more detail on loading assets, see the [AssetCollection Reference](../assets/asset-collection-reference.md).
 
 ## Creating a Part
 
@@ -49,8 +50,8 @@ Example:
 PartDefinition PottedPlantDefinition = new(
     Name: "Potted Plant",
     Description: "Potted plant!!!!!!!",
-    Prefab: Loader.GetAsset<GameObject>("PottedPlant"),
-    Thumbnail: Loader.GetAsset<Texture2D>("PottedPlantThumbnail"),
+    Prefab: Assets.GetAsset<GameObject>(PottedPlantKey),
+    Thumbnail: Assets.GetAsset<Texture2D>(PottedPlantThumbnailKey),
     PhysicalSize: Vector3.one * 0.25f,
     Mass: 1f,
     LogicalSize: Vector3.one,
@@ -103,20 +104,16 @@ namespace SDAPITest
         public const string DownloadLink = null;
     }
 
-    public class SDAPITest : StellarMelonMod
+    public sealed class SDAPITest : StellarMelonMod
     {
-        public static AssetLoader Loader;
+        public static AssetCollection? Assets { get; private set; }
 
-        public override void OnLateInitializeMelon()
+        [AssetKey] public const string PottedPlantKey = "PottedPlant";
+        [AssetKey] public const string PottedPlantThumbnailKey = "PottedPlantThumbnail";
+
+        public override void LoadAssets()
         {
-            Loader = new AssetLoader(
-                MelonAssembly.Assembly,
-                new[]
-                {
-                    "PottedPlant", "PottedPlantThumbnail"
-                },
-                LoggerInstance
-            );
+            Assets = AssetCollection.LoadFrom<SDAPITest>(logger: LoggerInstance);
         }
 
         public override void OnSceneWasLoaded(int buildIndex, string sceneName)
@@ -126,8 +123,8 @@ namespace SDAPITest
             PartDefinition PottedPlantDefinition = new(
                 Name: "Potted Plant",
                 Description: "Potted plant!!!!!!!",
-                Prefab: Loader.GetAsset<GameObject>("PottedPlant"),
-                Thumbnail: Loader.GetAsset<Texture2D>("PottedPlantThumbnail"),
+                Prefab: Assets.GetAsset<GameObject>(PottedPlantKey),
+                Thumbnail: Assets.GetAsset<Texture2D>(PottedPlantThumbnailKey),
                 PhysicalSize: Vector3.one * 0.25f,
                 Mass: 1f,
                 LogicalSize: Vector3.one,
